@@ -1,0 +1,15 @@
+ 
+ You can type anything you want here and save the changes.
+ Next time you open the app what you saved will be here.
+
+ Example:
+ Client:Activ
+ Client:GoToConnectSetup
+
+
+ OpenTV - https://github.com/samdisk11/OpenTV/
+ Based off MattMan&eMac's code.
+
+
+
+ Do Not Delete Notes.txt file thats where this shit is saved!
