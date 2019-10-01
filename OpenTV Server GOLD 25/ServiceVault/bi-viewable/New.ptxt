@@ -1,0 +1,51 @@
+200 OK
+Content-Length: %bytes
+Content-Type: text/html
+
+<body bgcolor="#000033" text="#999999">
+<center>
+<h1>New With 2.0</h1>
+</center><p>
+The W*b-TV Emulator 2.0 is the third generation of W*b-TV Emulators.  This generation of Emulators are used to preform more extensive research on how the WNI servers interact with the box.  This genearation was built under the knolenge gained from the second generation emulators (1.0, 1.5, 1.5r and 1.6) from which was built under the first generation Emulators (WebTV Viewer Server 1.0, and Workaround 1.0, 1.5, 2.0).  This is a list of the new featurs that are contained in this server.  This is a comparison with the last version of the emulators (1.6). 
+<p>
+This following bugs have been killed:<p>
+<b>DataBase</b>
+<p>
+<table>
+<tr><td>1.</td><td>The server can now see the ssid and database info on the first request.</td></tr>
+<tr><td>2.</td><td>Each client now has a separate DB to not mix up SSIDs.</td></tr>
+</table>
+<p>
+<b>*.txt Files</b>
+<p>
+<table>
+<tr><td valign="top">3.</td><td>The server now calculates the bytes after all the substiutions have been made.</td></tr>
+</table>
+<p>
+<b>Proxy</b>
+<p>
+<table>
+<tr><td valign="top">4.</td><td>The proxy now can be used on encrypted WebTV requests.</td></tr>
+</table>
+<p>
+The following functions have been removed:<p>
+<table>
+<tr><td>1.</td><td>Most 1.5 account scripts</td></tr>
+<tr><td>2.</td><td>All the 1.5 account functions</td></tr>
+<tr><td>3.</td><td>Manditory use of %&#00%% in *.txt files</td></tr>
+</table>
+<p>
+The following functions have been added:<p>
+<table>
+<tr><td>1.</td><td>SuperConnections Script</td></tr>
+<tr><td>2.</td><td>Accept Language Change</td></tr>
+<tr><td>3.</td><td>Advanced Proxy Functions</td></tr>
+<tr><td>3.</td><td>Header Setup</td></tr>
+<tr><td>4.</td><td>Research and Debugging Tools</td></tr>
+<tr><td>5.</td><td>Visitors Policy</td></tr>
+<tr><td>6.</td><td>Organized Client Logs</td></tr>
+<tr><td>7.</td><td>Cache Research Pages</td></tr>
+
+</table>
+
+

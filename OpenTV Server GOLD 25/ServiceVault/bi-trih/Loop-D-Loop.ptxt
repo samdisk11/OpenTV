@@ -1,0 +1,269 @@
+200 OK
+Content-length: %bytes
+Content-type: text/html
+
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Loop D' Loop </title>
+<script>
+CommonFiles=new Array();
+CommonFiles["1601"]="login";
+CommonFiles["1602"]="tricks";
+CommonFiles["1603"]="default";
+CommonFiles["1605"]="lobby";
+CommonFiles["1607"]="register";
+CommonFiles["1608"]="listmail";
+CommonFiles["1609"]="log";
+CommonFiles["1611"]="serve-folders";
+CommonFiles["1612"]="home";
+CommonFiles["1613"]="setup";
+CommonFiles["1614"]="log";
+CommonFiles["1615"]="preregister";
+CommonFiles["1618"]="UpgradeLaterWarning";
+CommonFiles["1619"]="list";
+CommonFiles["1621"]="help";
+CommonFiles["1622"]="reconnect";
+CommonFiles["1623"]="CustomTelly";
+CommonFiles["1625"]="explore";
+CommonFiles["1628"]="aroundtown";
+CommonFiles["1629"]="content";
+CommonFiles["1630"]="chat";
+CommonFiles["1632"]="make";
+CommonFiles["1633"]="epguide";
+CommonFiles["1634"]="content/Downloads.tmpl";
+CommonFiles["1635"]="content/Downloads.tmpl";
+CommonFiles["1636"]="tutorial";
+CommonFiles["1638"]="partnet";
+CommonFiles["1639"]="search";
+CommonFiles["1642"]="spotadd";
+CommonFiles["1643"]="welcome";
+CommonFiles["1648"]="onair";
+CommonFiles["1654"]="messengerlogin";
+CommonFiles["1656"]="music";
+
+
+function buildLoop(){
+
+}
+
+function UIDLoop(Ac,B){
+UIDStn="";
+
+if((Ac == null || Ac == "undefined")){
+Ac=""
+}
+if((B == null || B == "undefined")){
+B="100";
+}
+
+
+
+UIDStn="<body bgcolor=\"#000033\" text=\"#999999\" link=\"#AAAAAA\" vlink=\"#AAAAAA\"><form><table><tr><td>Statring ID: <input bgcolor=\"#000033\" text=\"#999999\" nohighlight border=0 value=\""+Ac+"\"></td></tr><tr><td>Step Count: <input bgcolor=\"#000033\" text=\"#999999\" nohighlight border=0 value=\""+B+"\" size='3' maxlength='3'></td></tr></table><p><input type=\"button\" onClick=\"top.selectTool(3,top.ACK.document.forms[0].elements[0].value,top.ACK.document.forms[0].elements[1].value)\" value=\"Scan!\"><p><hr noshadow><p>"
+
+addon="";
+if((Ac) && !(Ac == null || Ac == "undefined") && B){
+for(i=Ac.length; i < 9; i++){
+addon+="0";
+}
+newuserid=addon+Ac;
+B++;
+for(i=0; i < (B); i++){
+
+
+
+
+addon="";
+partC=(newuserid.substring(7));
+P1=(partC.substring(0,1));
+P2=(partC.substring(1,2));
+partB=(newuserid.substring(3,7));
+Prefix=(newuserid.substring(0,7));
+
+newuserid*=1;
+addit=0;
+if(partB.substring(1,2) == "9"){
+newuserid+=14;
+addit=1;
+}else{
+if(partB.substring(2,3) == "9"){
+newuserid+=12;
+addit=1;
+}else{
+if(partB.substring(3,4) == "9"){
+newuserid+=9;
+addit=1;
+}else{
+if(P1 == "9"){
+newuserid+=10;
+addit=1;
+}else{
+P1*=1;
+P2*=1;
+
+P1++;
+P2+=3;
+
+if(P2 > 9){
+
+P2=P2-10;
+}
+}
+}
+}
+if(!(addit)){
+newuserid=Prefix+P1+""+P2;
+}
+}
+newuseridX=(newuserid*1)+"";
+
+for(r=newuseridX.length; r < 9; r++){
+addon+="0";
+}
+
+newuserid=addon+""+newuseridX;
+
+UIDStn+="<form><input bgcolor=#000033 type=\"text\" value="+newuserid+" action=\"javascript:top.openURL('wtv-setup:/remove-users-delete?userToRemove="+newuserid+"')\" text=#999999 border=0 size=9 maxlength=9></form><br>";
+
+}
+}
+return UIDStn;
+
+}
+
+function openURL(A){
+document.open("text/url")
+document.write(A)
+document.close()
+
+
+}
+
+
+
+function IPLoop(Ac,B,C){
+
+if((Ac == null || Ac == "undefined")){
+Ac=""
+}
+if((B == null || B == "undefined")){
+B="1601";
+}
+if((C == null || C == "undefined")){
+C="1699";
+}
+
+IPStn="<body bgcolor=\"#000033\" text=\"#999999\" link=\"#AAAAAA\" vlink=\"#AAAAAA\"><form><table><tr><td>IP: <input bgcolor=\"#000033\" text=\"#999999\" nohighlight border=0 value=\""+Ac+"\"></td></tr><tr><td>From Port: <input bgcolor=\"#000033\" text=\"#999999\" nohighlight border=0 value=\""+B+"\"></td><td>To Port: <input bgcolor=\"#000033\" value=\""+C+"\" text=\"#999999\" nohighlight border=0></td></tr></table><p><input type=\"button\" onClick=\"top.selectTool(2,top.ACK.document.forms[0].elements[0].value,top.ACK.document.forms[0].elements[1].value,top.ACK.document.forms[0].elements[2].value)\" value=\"Scan!\"><p><hr noshade><p>";
+
+if(Ac){
+if(B < C || (B == C)){
+C++;
+for(i=B; i < C; i++){
+endput="";
+if(CommonFiles[i]){
+endput=CommonFiles[i];
+}
+if(i == B){
+IPStn+="<a href=http://"+Ac+":"+(i)+"/"+endput+" selected>http://"+Ac+":"+(i)+"/"+endput+"</a><br>\n";
+}else{
+IPStn+="<a href=http://"+Ac+":"+i+"/"+endput+">http://"+Ac+":"+i+"/"+endput+"</a><br>\n";
+}
+}
+}else{
+alert("Port from can not be greater than port to!")
+}
+}
+
+return IPStn;
+}
+
+function historyLoop(){
+historyStn="<body bgcolor=\"#000033\" text=\"#999999\" link=\"#AAAAAA\" vlink=\"#AAAAAA\"><table><tr><th>Num</th><th>URL</th><th>Type</th></tr>\n";
+for(i=0; i < history.length; i++){
+U=history[i];
+
+if(U.substring(0,7) == "mailto:")
+UType="Compose Mail"
+else
+if(U.substring(0,5) == "news:")
+UType="News Groups"
+else
+if(U.substring(0,4) == "wtv-")
+UType="Trusted Service"
+else
+if(U.substring(0,4) == "http")
+UType="HTTP page"
+else
+if(U.substring(0,4) == "file")
+UType="Local File"
+else
+if(U.substring(0,5) == "https")
+UType="Secure HTTP"
+else
+if(U.substring(0,6) == "gopher")
+UType="Gopher Index"
+else
+if(U.substring(0,3) == "ftp")
+UType="File Transfer Prorocol"
+else
+UType="Unknown"
+
+
+
+
+historyStn+="<tr><td>"+i+"</td><td><a href=\"javascript:openURL('"+U+"')\">"+U+"</a></td><td><a href=wtv-1800:/WrkS?URL="+escape(U)+"&NoToken=1>"+UType+"</a></td></tr>\n";
+}
+
+return (historyStn+="</table>");
+}
+
+function selectTool(A,B,C,D){
+if(A == 1){
+document.clientArea.document.open("text/html");
+document.clientArea.document.write(historyLoop());
+document.clientArea.document.close();
+
+}else{
+if(A == 2){
+document.clientArea.document.open("text/html");
+document.clientArea.document.write(IPLoop(B,C,D));
+document.clientArea.document.close();
+}else{
+if(A == 3){
+
+document.clientArea.document.open("text/html");
+document.clientArea.document.write(UIDLoop(B,C));
+document.clientArea.document.close();
+
+
+}else{
+if(A == 4){
+
+
+}
+}
+}
+}
+}
+
+</script>
+</head>
+<body bgcolor="#000033" text="#999999" link="#AAAAAA" vlink="#AAAAAA" onLoad="ACK=document.clientArea">
+<center>
+<h1>Loop D' Loop</h1>
+</center>
+<p>
+This page is named after the fact that all the functions on here instruct a for loop.  You may select on one of the tools below to get started.<p>
+<form>
+<select onChange="selectTool(this.selectedIndex)">
+<option>-=Select=-</option>
+<option value=1>Show backlist history</option>
+<option value=2>Port Scan IP</option>
+<option value=3>User Identification Loop</option>
+<!--<option value=4>Downloadable Build Check</option>-->
+</select>
+<p>
+<wtvchattranscript name="clientArea" src="wtv-1800:/empty2.html">
+
+</body>
+</html>

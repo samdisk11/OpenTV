@@ -1,0 +1,65 @@
+200 OK
+Content-length: %bytes
+Content-type: text/html
+
+<html>
+<head>
+<script>
+function WorkAround(a){
+document.open("text/url");
+document.write(a);
+document.close();
+}
+</script>
+<title>Using WE 2.0 on a Box</title>
+</head>
+<body bgcolor="#000033" text="#999999" link="#FFFFFF" vlink="#FFFFFF">
+<center>
+<h1>Using WE 2.0 on a Box</h1>
+</center>
+<p>
+Ok all users who own a box that is able to connect to this server may use these tools however you must get use to the tools on your side.  This will explan how to sign up for a account at WebTV networks at any service.<p>
+
+
+<h4>Step 1 Registering</h4><p>
+First of all you need to sign up for a account.  To do this you want to click on one of the links below and use the IP you want.  Remember to jot down the IP because you need it for future use.  If you are using a production IP I would recommend using 209.240.198.116 or 209.240.199.119 for your IP.  The best bet is 209.240.194.57 (TD MFG) becuase no token block is in effect on this server.  If your box does not pay the bill or is TOSd you can not get the token you would get a tech error this is for production servers and for ALL services not just the registration server at this point.<p>
+
+<a href=javascript:WorkAround("wtv-tricks:/RegityAnn")>Regity Ann</a><br>
+<a href=javascript:WorkAround("wtv-1800:/ProServs")>Production Servers</a><br>
+<a href=javascript:WorkAround("wtv-1800:/140Servs")>209.240.194 Servers</a><br>
+<a href=javascript:WorkAround("wtv-1800:/JapServs")>Japan Servers</a><p>
+
+After you have registered account sucessfully connect back to this server.  To know you got a account sucessfully you would either be dialing toll free (because of the challenge) -OR- you did not get a technical error from the review page.<p>
+
+<h4>Step 2 Setting up a Secondary User</h4><p>
+
+Once you have reconnected to this server you need to get the accounts page and setup a secondary user.  To do this you first need to retrive that IP you saved.  Once you have it read the instuctions below and please click on the url below.<p>
+<a href=javascript:WorkAround("wtv-tricks:/SuperConnect")>Super Connections</a><p>
+
+Use the first section where you enter the storefull IP.  After you have done this check to see if its a 209.240.194  IP if it is then you can use the tear down option "V" click this.  If you are using production use the presets to get the service setup.  After this please click on the Setup button.   The service list will be setup so that you can use the URLs in the goto panel.  However if you are inable to use the URLs in the goto panel I have a URL accessor in the page that is sent after you click "Setup".<p>
+Goto this URL: wtv-center:/change-city?redirect=wtv-setup:/accounts
+<p>
+
+The URL above will bring you to your accounts page.  The center service will setup your token for a bypass.  From there you would need to setup a secondary user and get the USER-ID for that user.  If you are having trouble I may be able to do this from the viewer side.<p>
+
+<h4>Step 3 Loging in and setting up yout NV RAM</h4><p>
+
+To login you need to setup the NV RAM.  You want to first get the token to this URL:  wtv-head-waiter:/ValidateLoginName?user-id=YOURUSERID.  You may get the exact token from this URL:<p>
+
+<a href=javascript:WorkAround("wtv-1800:/WrkS")>WebTV Workshed</a><p>
+
+After you got the token you may	setup your TellyScript from this page:<p>
+
+<a href=javascript:WorkAround("wtv-tricks:/TLLY")>Setup NV RAM</a><p>
+
+You want to use the IP you used to register as your wtv-head-waiter IP and the boot URL as the tokenized ValidateLoginName URL.  After you have set yout TS up (you should click on the button and it should imediatly setup even though it seamed to do nothing.)  you want to reboot your box by powering off and on.  It isn't for sure what number it will dial. <p>
+
+If you don't want it to dial long distance (if it is) or it isn't working.  You can connect to this server and use the "Super Connections"	script to get to the tokenzed validate login name page.<p>
+
+On login check-tellyscript will setup a tellyscript to boot into there servers but you don't have a inital key to login correctly you will be sent into the toll free screen every time.<p>
+
+<b>Have allot of fun!</b>
+
+
+
+
