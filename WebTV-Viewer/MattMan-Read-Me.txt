@@ -1,0 +1,26 @@
+
+
+This viewer was originally used to connect to the Webtv Networks back in 98 and early 2000's it was modified to send out the proper headers to WebTV like:
+
+wtv-client-serial-number: 81xxxxxxxxxxxxxx
+wtv-system-version: 16276
+wtv-client-bootrom-version: 2046
+wtv-client-rom-type: US-LC2-disk-0MB-8MB
+wtv-system-chipversion: 53608448
+User-Agent: Mozilla/4.0 WebTV/2.8.2 (compatible; MSIE 4.0)
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-capability-flags: 1fee0e1d9b1ffdef
+
+Plus a few other modifications.
+
+Since WebTV is now gone I used this viewer to help/test in my quest of building a custom WebTV build for the actual WebTV Plus box with a hard drive and the WebTV Echostar. I have left the files here so even if you do not own a real WebTV box you can still use the custom build minus Doom, and MAME. More info here http://turdinc.kicks-ass.net/Msntv/WebTV-MAME/index.html
+
+To access a demo of the custom build using the viewer simply access file://Disk/Browser/Games/Games.html
+
+MattMan 2013
+GraspYonOx@hotmail.com
+
+Update 2019
+No need to access file://Disk/Browser/Games/Games.html just connect to the server EMU and select the MattMan link on the Home Page. This works separate from the EMU as if it was actually on the WebTV disk.
