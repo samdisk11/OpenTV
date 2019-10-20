@@ -1,0 +1,60 @@
+
+
+On *:connect:1:{
+if($logc){
+
+if($SecurityLevel > 4 && ($sockhost ne $clienthost)){
+print $clients "500 Server security violation.\n\n";
+$pickcli->remove($clients);
+close($clients)
+}
+open(FILE,">> LOGs/Core/EventLog.txt");
+print FILE "Client Connected to server. ($iptoddd) ($formateddate)\n";
+close(FILE);
+}
+return 1;
+}
+
+
+On *:disconnect:1:{
+if($logc){
+open(FILE,">> LOGs/Core/EventLog.txt");
+print FILE "Client disonnected from server. ($clienthost:$clientport) ($formateddate)\n";
+close(FILE);
+}
+return 1;
+}
+
+
+On *:close:1:{
+
+open(FILE,">> LOGs/Core/EventLog.txt");
+print FILE "The program has been closed/exited. ($clienthost:$clientport) ($formateddate)\n";
+close(FILE);
+
+return 1;
+}
+
+
+On *:*:1:{
+
+$OUT->Attr($Headers | 0 , 80*25);
+printx("[ $headersv ]\n") if($OSh && ($nverbose) && ($headersv));
+$OUT->Attr($Message | 0 , 80*25);
+
+
+if(($haltserver) && (!($headersv=~/^halt/i))){
+print $clients "522 The server is not accepting any requests at this point.\n";
+}else{
+$wniserverinterval{$clients}.=$headersv;
+
+checkWNIServerInterval();
+
+}
+$exec=0;
+
+return 1;
+}
+
+
+

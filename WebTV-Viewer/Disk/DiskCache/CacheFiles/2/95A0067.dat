@@ -1,0 +1,101 @@
+Location: http://games.net4tv.com/games/home/_nav.css
+Access-Level: Unrestricted
+Content-Type: application/www-form-urlencoded
+Content-Length: 2948
+Last-Modified: Thu, 13 Nov 2014 01:06:29 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:18 GMT
+
+/* _nav.css */
+.nav, .nav2 {
+    border-radius: .5em;
+		position:relative;
+		width:52.25em; 
+		height: 3.5em;
+
+		font-family: "quandoregular",serif;
+		float:left;
+		clear:right;
+		margin: 0 0 0 .5em;
+    border: .125em white solid; 
+}
+.nav2 {
+		margin: 0 0 0 0;
+		width:52em;	
+}
+
+#userpms {
+	width: 9em;
+	position: relative;
+	float: right;
+	margin-top: .2em;
+	line-height: 1.6em;
+	height: 100%;
+	font-weight: 600;
+	cursor: pointer;	
+}
+.envelope {
+	position: relative;
+	float: left;
+	width: 67px;
+	height: 50px;
+	text-align: center;
+	color: #181818;
+	font-size: 2em;
+	line-height: 1.6em;
+	background-image: url(images/dress/mailicons.png);
+}
+.nomail {
+	background-position:-120px 0px;	
+}
+.newmail {
+	background-position:-240px 0px;		
+	font-weight: 800;
+	color: #ff0000;
+}
+.unreadmail {
+	background-position:-360px 0px;
+		font-weight: 800;	
+		color: #fff;		
+}
+.mailtalk {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	width: 4.5em;
+	line-height: 3.2em;
+	margin-left: .25em;
+	/* text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);*/
+	color: #ffffff;
+}
+.sf-menu ul li {width:100%;}
+.sf-menu li {float:left;position:relative;}
+
+
+.sf-menu > li {
+    padding-left: 1.0em;
+    padding-right: 1.0em;
+}
+.sf-menu>li>a:hover,.sf-menu>li.current>a,.sf-menu>li.sfHover>a{color: #9c9494;text-shadow: 2px 2px 2px rgba(150, 150, 150, 1); background-color: #f7f6f6;} 
+
+.sf-menu>li{display:block;position:relative; overflow: hidden; font-size: 1.15em; line-height: 1.35em; color:#fff;font-weight: 800; text-shadow: 2px 2px 2px rgba(150, 150, 150, 1); padding: 1em .8em .7em .8em;text-align: center;position: relative;}
+.sf-menu>li.first_it{background: none;}
+.sf-menu>li.first_it, .sf-menu>li.last_it{overflow: hidden;}
+.sf-menu>li.first_it a{border-radius: .5em 0 0 .5em;}
+/*.sf-menu>li.last_it a{border-radius: 0px 7px 7px 0px;} */
+.sf-menu a{}
+.sf-menu>li{margin-bottom: 1px;}
+/*================================>> 2 Level <<========================================*/
+/*
+.sf-menu li ul,.sf-menu li.sfHover>ul{left:-1px;top:45px;width: 161px;padding:0 0 0 0; z-index:99}
+.sf-menu li li.first_it{border-radius: 3px 3px 0 0;}
+.sf-menu li li.last_it{border-radius: 0px 0px 3px 3px;}
+.sf-menu li ul li{margin-bottom: 1px;background: url('../images/sub_marker.png') 135px 15px no-repeat #746a6a;}
+.sf-menu li ul li a{display: block;color: #b2b2b2;font-weight: bold;padding: 8px 0 8px 20px;}
+.sf-menu li li a:hover, .sf-menu li.sfHover li.sfHover>a{color: #fff;}
+
+.sf-menu>li>a .menu-arrow{display:inline-block; width:5px;margin-left:5px;height:5px;text-indent:-100%; font-size:0; line-height:0;background: url('../images/menu_arrow.png') 0 -7px no-repeat;vertical-align: middle;}
+	 .sf-menu a:hover .menu-arrow, .sf-menu li.current>a .menu-arrow, .sf-menu .sfHover>a .menu-arrow{background-position:0 1px;}
+
+
+/*================================>> 3 Level <<========================================*/
+/*.sf-menu li li ul{left:162px !important;top:0px !important;} */

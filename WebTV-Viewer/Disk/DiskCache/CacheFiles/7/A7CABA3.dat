@@ -1,0 +1,553 @@
+Location: http://games.net4tv.com/games/cinqo/_game.style.css
+Access-Level: Unrestricted
+Content-Type: application/www-form-urlencoded
+Content-Length: 10350
+Last-Modified: Sat, 28 Mar 2015 21:31:18 GMT
+Last-Validated: Sun, 20 Oct 2019 03:35:43 GMT
+
+#appAreaGroupX{outline:1px dotted rgb(255,255,255);}
+
+#appAreaGroupXXX{
+	background-image:url(dress/cinqo480.png);
+	background-position:-.75em -.75em;
+}
+
+.bg{
+	transition:all 1s linear;
+	-webkit-transition:all 1s linear;
+	-moz-transition:all 1s linear;
+	-ms-transition:all 1s linear;
+	-o-transition:all 1s linear;
+}
+
+.player0 .bg, #playerName0{background-color:#01147B;/* BLUE */}
+.player1 .bg, #playerName1{background-color:#044400;/* GREEN */}
+.player2 .bg, #playerName2{background-color:#6E0C0B;/* RED */}
+.player3 .bg, #playerName3{background-color:#56125C;/* PURPLE */}
+
+.gameNav{
+	position:absolute;
+	width: 40em;
+	left: 0.5em;
+	top: 0.25em;
+}
+
+.gameboard{
+	position:absolute;
+	left:0.5em;
+	top:3.125em;
+}
+
+
+#scoreboards{
+	position:absolute;
+	top:.5em;
+	right:0.75em;
+}
+
+.scoreboard{
+	margin-bottom:0.75em;	
+}
+
+/* HACK FOR FIREFOX RENDER BUG */
+.firefox .scoreboard{
+	margin-bottom:0.4375em;	
+}
+
+/* CURRENT PLAYER'S SCOREBOARD */
+.player0 #scoreboardP0, .player1 #scoreboardP1, .player2 #scoreboardP2, .player3 #scoreboardP3{
+	background-color:rgba(0,0,0,.2);
+	border-radius:1em;
+	margin-bottom:.5em;
+}
+
+/* HIDES EXTRA SCOREBOARDS */
+.numplayers1 #scoreboardP1, .numplayers1 #scoreboardP2, .numplayers1 #scoreboardP3,
+.numplayers2 #scoreboardP2, .numplayers2 #scoreboardP3,
+.numplayers3 #scoreboardP3
+{
+	display:none;
+}
+
+
+.scoreBg{
+	position:absolute;
+	left:1.75em;
+	background-color:rgba(0,0,0,.3);
+	width:7.875em;
+	height:2em;
+	border-bottom-right-radius:1em;
+	border-bottom-left-radius:1em;
+}
+
+/* CURRENT PLAYER SCORE COUNT BG  */
+.player0 .scoreBg.P0, .player1 .scoreBg.P1, .player2 .scoreBg.P2, .player3 .scoreBg.P3{
+	background-color:rgba(0,0,0,.3);
+	position:absolute;
+	left:4.5em;
+	width:5.0em;
+	height:7.5em;
+}
+
+.playerName{
+	position:relative;
+	display:table;
+	width:80%;
+	height:1.75em;
+	margin-left:9%;
+	border:.16em solid white;
+	border-radius:.5em;
+	padding:.125em 0em;
+
+}
+
+.playerName p{
+	position:relative;
+	top:-.06125em;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	font-size:1.325em;
+	font-family:orbitronbold, sans-serif;
+}
+
+.sbLabel, .sbCount{
+	display:none;
+}
+
+.sbCount p{
+	color: #fff000;
+	font-family:orbitronmedium, sans-serif;
+	font-size:1.5em;
+}
+
+.sbLabel p{
+	font-family:PT Sans Narrow, sans-serif;
+	font-weight: bold;
+	font-size:1.25em;
+}
+
+.sbLabel p, .spCount p{
+	line-height:1.5em;
+}
+
+.keep{display:inline-block;}
+
+
+/* NON-PLAYER TOTAL COUNT */
+.player0 .sbCount.P1 p, .player0 .sbCount.P2 p, .player0 .sbCount.P3 p,
+.player1 .sbCount.P0 p, .player1 .sbCount.P2 p, .player1 .sbCount.P3 p,
+.player2 .sbCount.P0 p, .player2 .sbCount.P1 p, .player2 .sbCount.P3 p,
+.player3 .sbCount.P0 p, .player3 .sbCount.P1 p, .player3 .sbCount.P2 p{
+	width:7.625em;
+	line-height:1.25em;
+
+}
+
+/* Current Player's Labels */
+.player0 .sbLabel.P0, 
+.player1 .sbLabel.P1, 
+.player2 .sbLabel.P2, 
+.player3 .sbLabel.P3{
+	display:inline-block;
+	left:1.25em;
+	width:32%;
+}
+
+
+/* Current Player's Counts */
+.player0 .sbCount.P0, 
+.player1 .sbCount.P1, 
+.player2 .sbCount.P2, 
+.player3 .sbCount.P3{
+	display:inline-block;
+	left:1.25em;
+	width:38%;
+}
+
+#talkyAreaX{
+	visibility:visible;
+}
+
+
+.tallies{
+	display:table;
+}
+
+.tallyLabel{
+	background-color:rgba(255,255,255,.7);
+	border:2px solid black;
+	font-family:orbitronblack, sans-serif;
+	font-size:1.5em;
+	color:black;
+}
+
+.tally{
+	border:2px solid black;
+	font-family:orbitronregular, sans-serif;
+	font-size:2em;
+	color:black;
+}
+
+.tallyLabel, .tally{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	font-family:orbitronmedium, sans-serif;
+}
+
+.tallyLabel.lo, .tally{
+	background-color:rgba(255,255,255,.3);
+}
+
+
+
+.tally {
+	color: #fff;
+}
+
+
+.Mc0, .Mc2, .Mc0 div:nth-of-type(1), .Mc2 div:nth-of-type(1){/* TALLY LABELS*/
+	width:11.25em;
+}
+
+
+
+.Mc1, .Mc3, .Mc1 div:nth-of-type(1), .Mc3  div:nth-of-type(1){/* TALLY COUNTS*/
+	width:6em;
+}
+
+
+.Mc1, .Mc1 div:nth-of-type(1){
+	left:11.5em;
+}
+
+.Mc2, .Mc2 div:nth-of-type(1){
+	left:20em;
+}
+
+
+.Mc3, .Mc3 div:nth-of-type(1){
+	left:31.5em;
+}
+
+
+#ppMr6c0, #ppMr6c1{
+	display:none;
+}
+
+
+#DPboard, #DLboard{
+	position: absolute;
+	top:22.50em;
+	left:9.125em;
+}
+
+.die{
+  float:left; 
+  margin-right:.25em; 
+  margin-bottom:.25em;
+  position:relative;
+  width:3em;
+  height:3em;
+  border-radius:.5em;
+
+}
+
+
+.dieDim{
+	opacity:.7;
+}
+
+
+.dieX.dieDimX{
+	outline:2px solid red;
+	outline-offset:.125em;
+}
+
+.dieBright{
+	opacity:1;
+}
+
+.dot{
+  position:absolute;
+  width:.65em;
+  height:.65em;
+  border-radius:10em;
+  background-color:black;
+  opacity:.0;
+}
+
+.north{ 
+  top:.325em;
+}
+
+.south{
+  bottom:.325em;
+}
+
+.west{ 
+  left:.325em;
+}
+
+.east{ 
+  right:.325em;
+}
+
+.mid{ 
+    top:0;
+    bottom: 0;
+    margin: auto;
+}
+
+.cent{
+    left:0;
+    right: 0;
+    margin: auto;
+}
+
+#gameboard{
+  width:4em;
+  height:40em;
+  position:absolute;
+  background-color:#000055;
+  padding:2em;
+}
+
+.die.n1 .dmc,/* DIE 1 */
+.die.n2 .dne, .die.n2 .dsw, /* DIE 2 */
+.die.n3 .dne, .die.n3 .dsw, .die.n3 .dmc,/* DIE 3 */
+.die.n4 .dnw,.die.n4 .dsw,.die.n4 .dne,.die.n4 .dse,/* DIE 4 */
+.die.n5 .dnw, .die.n5 .dsw,.die.n5 .dne, .die.n5 .dse,.die.n5 .dmc,/* DIE 5 */
+.die.n6 .dnw, .die.n6 .dmw,.die.n6 .dsw,.die.n6 .dne, .die.n6 .dme,.die.n6 .dse/* DIE 6 */
+{
+  opacity:1;
+}
+
+.rolling .die.n1 .dmc,/* DIE 1 */
+.rolling .die.n2 .dne, .rolling .die.n2 .dsw, /* DIE 2 */
+.rolling .die.n3 .dne, .rolling .die.n3 .dsw, .rolling .die.n3 .dmc,/* DIE 3 */
+.rolling .die.n4 .dnw,.rolling .die.n4 .dsw,.rolling .die.n4 .dne,.rolling .die.n4 .dse,/* DIE 4 */
+.rolling .die.n5 .dnw, .rolling .die.n5 .dsw,.rolling .die.n5 .dne, .rolling .die.n5 .dse,.rolling .die.n5 .dmc,/* DIE 5 */
+.rolling .die.n6 .dnw,.rolling .die.n6 .dmw,.rolling .die.n6 .dsw,.rolling .die.n6 .dne, .rolling .die.n6 .dme, .rolling .die.n6 .dse/* DIE 6 */
+{
+  opacity:.2;
+}
+
+
+
+.dot{
+  background-color:rgb(74,62,47);
+  box-shadow:
+    inset 1px 2px 2px 2px rgba(0,0,0,.8),
+    inset 3px 3px 2px 2px rgba(0,0,0,.5),
+    inset 5px 5px 2px 3px rgba(0,0,0,.3);
+}
+
+.dotx{
+background: rgb(130,130,130); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(130,130,130,1) 7%, rgba(0,0,0,1) 90%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(7%,rgba(130,130,130,1)), color-stop(90%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(130,130,130,1) 7%,rgba(0,0,0,1) 90%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(130,130,130,1) 7%,rgba(0,0,0,1) 90%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(130,130,130,1) 7%,rgba(0,0,0,1) 90%); /* IE10+ */
+background: radial-gradient(ellipse at center,  rgba(130,130,130,1) 7%,rgba(0,0,0,1) 90%); /* W3C */
+filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='#828282', endColorstr='#000000',GradientType=1 )"; /* IE6-9 fallback on horizontal gradient */
+
+}
+
+.die{
+  background-color:tan;
+  transition:all 2s;
+  -webkit-transition:all 2s;
+  -ms-transition:all 2s;
+  -o-transition:all 2s;
+  -moz-transition:all 2s;
+  
+    box-shadow:
+    inset 1px 1px 2px 3px rgba(255,255,255,.1),
+    inset 2px 2px 2px 2px rgba(255,255,255,.3),
+    
+    inset -1px -1px 2px 3px rgba(0,0,0,.1),
+    inset -2px -2px 2px 2px rgba(0,0,0,.3);
+
+}
+
+.die, .dot{
+    transition:all .5s;
+  -webkit-transition:all .5s;
+  -ms-transition:all .5s;
+  -o-transition:all .5s;
+  -moz-transition:all .5s;
+
+}
+
+
+.holds{
+	position:absolute;
+	left:9.125em;
+	top:26.75em;
+}
+
+.hold, .held{
+	position:relative;
+	float:left;
+	margin-right:2.05em;
+	width:4.0em;
+	display:table;
+}
+
+.hold p, .held p{
+	position:relative;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	font-size:1.5em;	
+	font-family:PT Sans Narrow, sans-serif;
+	font-weight: bold;
+}
+
+.hold p{
+	opacity:1;
+}
+
+.held p{
+	opacity:1;
+	color:#fff000;
+	text-shadow:1px 1px 2px black	
+}
+
+
+.rolling{
+  animation: spin .5s infinite linear;
+  -webkit-animation: spin .5s infinite linear;
+  -moz-animation: spin .5s infinite linear;
+  -ms-animation: spin .5s infinite linear;
+  -o-animation: spin .5s infinite linear;
+}
+
+.norolling{
+  animation: none;
+  -webkit-animation:none;
+  -moz-animation: none;
+  -ms-animation: none;
+  -o-animation: none;
+}
+
+
+
+#CPboard, #CLboard{
+	position:absolute; 
+	left:1.5em;
+	top:21em;
+
+}
+
+.cup{display:table;}
+
+.rez360 .cup{background-image:url('dress/cup_360.png');}
+.rez480 .cup{background-image:url('dress/cup_480.png');}
+.rez720 .cup{background-image:url('dress/cup_720.png');}
+.rez960 .cup{background-image:url('dress/cup_960.png');}
+.rez1080 .cup{background-image:url('dress/cup_1080.png');}
+
+
+.cupLabel{
+	display:table-cell;
+	text-align:center;
+	vertical-align: middle;
+	font-family:PT Sans Narrow, sans-serif;
+	font-weight: bold;
+	font-size:2.0em;
+	text-shadow:
+			2px 2px 2px rgba(0,0,0,.5),
+		-2px 2px 2px rgba(0,0,0,.5),
+		2px -2px 2px rgba(0,0,0,.5),
+		-2px -3px 2px rgba(0,0,0,.5),
+
+		1px 1px 1px rgba(0,0,0,.7),
+		-1px 1px 1px rgba(0,0,0,.7),
+		1px -1px 1px rgba(0,0,0,.7),
+		-1px -1px 1px rgba(0,0,0,.7);
+
+}
+
+@-keyframes spin {
+    0%   {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+}
+
+@-ms-keyframes spin {
+    0%   {-ms-transform: rotate(0deg)}
+    100% {-ms-transform: rotate(360deg)}
+}
+
+
+
+@-webkit-keyframes spin {
+    0%   {-webkit-transform: rotate(0deg)}
+    100% {-webkit-transform: rotate(360deg)}
+}
+
+
+@-moz-keyframes spin {
+    0%   {-moz-transform: rotate(0deg)}
+    100% {-moz-transform: rotate(360deg)}
+}
+
+.rulesDisclaimer{
+	font-size:.125em;
+	opacity:.2;
+	font-style:italic;
+}
+
+
+
+/* IE8 HACKS */
+
+.ie8 .dot {
+	box-shadow:none;
+}
+
+.ie8 .Mc3{
+	left:29.5em;
+}
+
+.ie8 .Mc2{
+	left:19em;
+
+}
+
+
+.ie8 #pMr0c2, .ie8 #pMr1c2, .ie8 #pMr2c2, .ie8 #pMr3c2, .ie8 #pMr4c2, .ie8 #pMr5c2, .ie8 #pMr6c2{/* TALLY LABELS*/
+	width:10.5em;
+}
+
+.ie8 .die{
+	background-color:transparent;
+	background-image:url('dress/diebg.png');
+	background-repeat:no-repeat;
+	box-shadow:none;
+}
+
+.ie8 .dot{
+	background-radius:0;
+	background-color:transparent;
+	background-image:url(dress/dot.png);
+	box-shadow:none;
+	background-repeat:no-repeat;
+}
+
+
+.ie8 #talkyFrame{
+	background: transparent;
+	background-color:black;
+}
+
+.ie9 .rolling{
+	-ms-transform: rotate(45deg);
+}
+
+.ie8 .rolling{
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; /* IE8 */
+}

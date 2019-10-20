@@ -1,0 +1,41 @@
+hdgfhgdffgdh<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>																							  hdg
+<head>							   hdfghdfg						 <h1><!--#val var="$par"--></h1>
+<title> SSI </title>															   hgdf
+</head>				dhfg
+												  dhfg
+"<body bgcolor="#000033" text="#999999"><p><p><p>"							  hfgd			   hdfghdgf
+<i>This is a test SSI page.  The round about random jibberish is used to show how the text is not effected when paresed</i>.<p>
+
+
+		fhgd					   hfgd
+<P>															dghf			 ghfd
+<table>									 dfhg
+<tr><td>Embeded HTML: <!--#include virtual="ROMCache:/HomePageTopSubscriberPlus-v1.html"--></td></tr>  dhgf							 <h1><!--#val var="$par"--></h1> <h1><!--#val var="$service"--></h1>
+<tr><td>Embeded CGI: <!--#include virtual="cgi-bin:/ENV.cgi"--></td></tr>
+<tr><td>Local Time: <!--#echo vars="DATE_LOCAL"--></td></tr>	dfhgdhfg			   hgdf
+</table>			  hgdfdhgf
+
+
+<if ($username)>
+Welcome "<!--#val var="$username"-->", you are logged in! (<!--#include virtual="wtv-hodgfme:/nowhere"-->) :)<p> 					  hfgdhdgf
+<elsif $userssid>
+You are a box user :) but not logged in  "<!--#val var="$userssid"-->"<p>
+<else>
+Your a computer user who is not logged in<p>
+<endif>
+gfhd
+		hdgfd														  hdgf
+</body>
+</html>
+	hgfd				dgf			hdgf		gfh		  hfdg							  hfgd
+
+   fghd
+					 gfdh										dfgh		gf
+
+												
+
+					fhg				hgdf								 ghfd
+	hgfd				dgf			hdgf		gfh		  hfdg							  hfgd
+
+

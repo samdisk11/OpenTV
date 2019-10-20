@@ -1,0 +1,347 @@
+##############################################################################
+# WWWBoard                      Version 2.0 ALPHA 2.1                        #
+# Copyright 1996 Matt Wright    mattw@worldwidemart.com                      #
+# Created 10/21/95              Last Modified 11/25/95                       #
+# Security Patches/Bug Fixes:   January 07, 2000                             #
+# Scripts Archive at:           http://www.worldwidemart.com/scripts/        #
+##############################################################################
+# If you run into any problems while trying to configure this scripts, help  #
+# is available.  The steps you should take to get the fastest results, are:  #
+#       1) Read this file thoroughly					     #
+#       2) Consult the Matt's Script Archive Frequently Asked Questions:     #
+#               http://www.worldwidemart.com/scripts/faq/	             #
+#       3) If you are still having difficulty installing this script, send   #
+#          e-mail to: scripts-help@tahoenet.com				     #
+#          Include any error messages you are receiving and as much detail   #
+#          as you can so we can spot your problem.  Also include the variable#
+#          configuration block that is located at the top of the script.     #
+#									     #
+# Hopefully we will be able to help you solve your problems.  Thank you.     #
+##############################################################################
+# COPYRIGHT NOTICE                                                           #
+# Copyright 1996 Matthew M. Wright  All Rights Reserved.                     #
+#                                                                            #
+# WWWBoard may be used and modified free of charge by anyone so long as      #
+# this copyright notice and the comments above remain intact.  By using this #
+# code you agree to indemnify Matthew M. Wright from any liability that      #  
+# might arise from it's use.                                                 #  
+#                                                                            #
+# Selling the code for this program without prior written consent is         #
+# expressly forbidden.  In other words, please ask first before you try and  #
+# make money off of my program.                                              #
+#                                                                            #
+# Obtain permission before redistributing this software over the Internet or #
+# in any other medium.  In all cases copyright and header must remain intact.#
+##############################################################################
+
+WWWBoard is the Version 2.0 of my Bulletin Board Message System.  I think 
+that the name is much better, and a lot fewer characters.  Version 2.0 
+has many enhancements, which were never put into version 1.0.  MANY of 
+the bugs in version 1.0 were fixed, although I am sure you will probably 
+find more.  
+
+This version of the message system is a complete re-write over the last 
+one, and is not at all backwards compatible.  To use this new version, 
+you will just need to remove all past messages and start again.  I think 
+it is definitely worth it.
+
+WWWBoard Version 2.0 has managed to reduce the number of scripts required 
+to run the bulletin board from three down t one.  This makes it much more 
+efficient.
+
+The following files should have come with WWWBoard Version 2.0 ALPHA 2:
+
+        a.  ALPHA-2       - READ THIS.
+	1.  README	  - The necessary Install Instructions.  This file.
+	2.  wwwboard.pl   - The Perl CGI script that runs everything.
+	3.  wwwboard.html - The HTML WWWBoard file that users will see.
+	4.  faq.html	  - An FAQ file displayed for users of wwwboard.
+	5.  data.txt	  - Where the file number is stored.
+	6.  messages/	  - Where the messages will be created and stored.
+	7.  wwwadmin.pl	  - An Admin tool to delete messages.
+	8.  passwd.txt    - The encoded password and username for WWWAdmin
+        9.  ADMIN_README  - WWWAdmin README file.
+
+You will need to edit by hand several of the files that come with 
+WWWBoard Version 2.0.  Below is a description of how to modify all of the 
+necessary files:
+___________________________________________________________________________
+
+				WWWBOARD.PL
+				===========
+
+This file must be placed in your server's cgi-bin, or if your server has 
+.cgi extensions allowed, you can simply rename this file to wwwboard.cgi, 
+changing the $cgi_url variable below to reflect this.  The file must also 
+be chmoded 755. Ask your system administrator for more information on 
+either the cgi-bin or chmod command.
+
+This is the most complicated file you will need to modify.  It comes with 
+a lot of variables and many options.  Below is a summary of how to 
+configure all of the variables and what the options do:
+
+###########################################################################
+# Define Variables
+
+$basedir = "/path/to/wwwboard";
+	This variable should contain the absolute system path to your 	
+        wwwboard directory.  So if you keep all of your files in 	
+        /home/yourname/public_html and you make a directory under there
+        called 'wwwboard', then $basedir would be set to: 
+        /home/yourname/public_html/wwwboard.
+
+$baseurl = "http://your.host.xxx/wwwboard";
+        This is the base URL to the directory where wwwboard is kept.  So
+ 	staying with the example above, if your main directory is called 
+        by: http://your.host.xxx/~yourname/, the $baseurl would be set to: 
+        http://your.host.xxx/~yourname/wwwboard/.
+
+$cgi_url = "http://your.host.xxx/cgi-bin/wwwboard.pl";
+	This is the URL that points to wwwboard.pl.  This will be used in 
+        followup form responses, so this must be correct.
+
+$mesgdir = "messages";
+	This is the name of your messages directory which will be appended
+ 	to $basedir.  All of the messages for wwwboard will be created and
+ 	held in this directory.
+
+$datafile = "data.txt";
+	This is the name of the data file which will also be appended to 
+        $basedir.  It will hold the current filename count, and the script 
+        will read this in and determine the message filename from this 	file.
+
+$mesgfile = "wwwboard.html";
+	This is the name of the wwwboard.html file, which you might want to
+ 	rename to index.html for the sake of a shorter URL.  It will be 
+        appended to both $basedir and $baseurl to determine the URL and the 
+        absolute path to this file, both for URL references by the script 
+        and for editing of this file by the script.
+
+$faqfile = "faq.html";
+	This is the path to the faq.html file which will be appended to 
+        $baseurl so users can find their way to the Frequently Asked
+ 	Questions file about WWWBoard.
+
+$ext = "html";
+	This is the ext with which all individual files will be created 
+        with.  Most of the time it should be left as html, but on the 
+	occasion when you may be suing this on a dos based platform you can
+ 	switch it to 'htm'.
+
+$date_command = "/bin/date";
+	This needs to be the path to your 'date' command.  This script uses
+ 	the date command to time stamp the messages individually with along
+ 	date and to place a short 'added' date on the wwwboard.html page.
+
+$title = "WWWBoard Version 2.0 Test";
+	This is the title of your WWWBoard, which will be used on the 
+        individual message pages.  Call your message board whatever you 
+        like, but I do recommend changing the above to something a little 
+        more catchy. :-)
+
+# Done
+###########################################################################
+
+There are also several options you will need to configure:
+
+###########################################################################
+# Configure Options
+
+$show_faq = 1;          # 1 - YES; 0 = NO
+	This option allows you to choose whether or not you want to display
+ 	a link to the FAQ on every individual message page or not.  It
+ 	defaults to 1 and the link will be put in at the top of the message
+ 	along with links to Followups, Post Followup and Back to $title.
+  	Setting this to 0 will turn it off, and keeping it at 1 will keep
+ 	the link.
+
+$allow_html = 1;        # 1 = YES; 0 = NO
+	This option lets you choose whether or not you want to allow HTML 
+	mark-up in your posts.  If you do not want to allow it, then
+ 	everything that a user submits that has <>'s around it will be cut 
+	out of the message.  Setting this option to '1' will allow HTML in 
+	the posts and you can turn this option off by setting it to '0'.
+
+$quote_text = 1;        # 1 = YES; 0 = NO
+	By keeping this option set to 1, the previous message will be 
+	quoted in the followup text input box.  The quoted text will have a 
+	':' placed in front of it so you can distinguish what had been said 
+	in the previous posts from what the current poster is trying to get 
+	across.  Setting this option to '0' will leave the followup text 
+	box empty for the new poster.
+
+$subject_line = 0;      # 0 = Quote Subject Editable; 1 = Quote Subject
+                        #   UnEditable; 2 = Don't Quote Subject, Editable.
+	There are three options for the way that you can display the 
+	subject line for the user posting a followup.  Leaving this option 
+	at '0' which is the default value, will put the previous subject 
+	line into the followup form and allow users to edit the subject 
+	however they like.  Setting this option to '1', however, will quote 
+	the subject, but simply display it to the user, not allowing him or 
+	her to edit the subject line.  The third and final option can be 
+	achieved by setting the $subject_line variable to '2'.  If it is 
+	set to '2' the subject will not be quoted and instead the user will 
+	be prompted with an empty subject block in their followup subject 
+	line.
+
+$use_time = 1;		# 1 = YES; 0 = NO
+	This option allows you to choose whether or not you want to use the
+ 	hour:minute:second time with the day/month/year time on the main 
+	page.  Day/Month/Year will automatically be placed on the main 
+	wwwboard.html page when a new entry is added, but if you leave this 
+	variable at '1' the hour:minute:second time will also be put there. 
+	This is very useful for message boards that get a lot of posts, 
+	but if you would like to save space on your main page, you can set 
+	this to '0' causing the hour:minute:second display not to be added.
+
+$show_poster_ip = 1;    # 1 = Show the IP of every poster; 0 = Don't
+	If this option is turned on (set to 1), the IP of the user who
+        posted the message will be shown after the name on each post.
+
+$enforce_max_len = 0;   # 2 = YES, error; 1 = YES, truncate; 0 = NO
+	This feature allows you to enforce a maximum length on the fields
+	in the post form.  If you wish to have it produce an error when
+	the lengths are surpassed, then set it to 2, if you wish for the
+	data to be truncated instead of an error accurring, set it to 1
+	and only the max length of data will be posted. Setting this to
+	0 will not restrict the size of messages.  The max size of each 
+	field can be configured with %max_len.
+
+%max_len = ('name', 50, 	This sets the maximum length of each field
+            'email', 70, 	in terms of the maximum number of characters.
+            'subject', 80, 	So as default, the name can have a max size 
+            'url', 150, 	of 50 charactersm the mail address 70, and so
+            'url_title', 80,	on. The part in quotes corresponds to the 
+            'img', 150,		field name in the post form, and the number
+            'body', 3000,	corresponds to the max size of the field.
+            'origsubject', 80,
+            'origname', 50,
+            'origemail', 70,
+            'origdate', 50);
+
+
+# Done
+###########################################################################
+
+WOW!  You made it through all that.  That was the hardest file to edit.
+
+___________________________________________________________________________
+
+			   WWWBOARD.HTML
+			   =============
+
+wwwboard.html must be placed in the directory that you defined in 
+$basedir of your wwwboard.pl file.  It must be chmoded 777 so that your 
+web server's uid (User ID) has permission to write to this file.
+
+This file needs much less editing than the wwwboard.pl script.  There are 
+three things that you will want to edit in this file.  The first two are 
+simply the title of your WWWBoard.  Currently the two lines look like:
+
+<title>WWWBoard Version 2.0!</title> and <h1>WWWBoard Version 2.0!</h1>
+
+You will want to change the title and header "WWWBoard Version 2.0!" to 
+whatever you want to call your WWWBoard.  This should probably be the 
+same as the variable $title that you defined in wwwboard.pl.
+
+The third line in this file that you will need to edit is the one that 
+looks like:
+
+<form method=POST action="http://your.host.xxx/cgi-bin/wwwboard.pl">
+
+You need to change the URL that is in action="" to the same URL that you 
+defined in wwwboard.pl as $cgi_url.
+
+Once you have made these changes you can exit this file and save it.
+
+___________________________________________________________________________
+
+			 	FAQ.HTML
+			 	========
+
+This file does not need to be edited, unless you want to change the 
+heading or title or add a link back to your wwwboard page.
+
+It should be placed in the $basedir directory and its name should reflect 
+that of the $faq_file variable defined in wwwboard.pl
+
+It should be chmoded 744, so that it is readable by all.
+
+___________________________________________________________________________
+
+			       MESSAGES/
+			       =========
+
+This is a directory that should also be placed in $basedir as defined in 
+wwwboard.pl.  This directory must be chmoded 777 so that messages can be 
+written into it by the server's UID.
+
+___________________________________________________________________________
+
+				DATA.TXT
+				========
+
+Simply place this file into $basedir as defined in wwwboard.pl and chmod 
+it 777 so that the web server can write an incremented number to it.  
+This is where the file name number will be kept.
+
+___________________________________________________________________________
+
+				 README
+				 ======
+
+		    This is the easiest.  Just READ it!
+
+___________________________________________________________________________
+
+Version 2.0 Improvements Over 1.0:
+
+* HTML does not mess up postings like the last version did.
+* There are many more options to allow flexibility in design.
+* One CGI program instead of three.  Makes everything smoother and
+  more efficient.
+* File names are derived from an incremented number up to 99999 so that
+  messages won't overlap, like they could have with the old pid numbers that
+  were used.
+* Many more things I can't even begin to list.
+
+___________________________________________________________________________
+
+Version History:
+
+Version 2.0:            Complete Re-Write of Version 1.0
+  A1    11/4      -     ALPHA 1 Version Released because many people were 
+                        writing asking if they could get a copy of it.
+        12/27/99  -     Fixed small Y2K date problem.
+  A2.1  01/07/00  -     Patched up a couple of security holes relating to
+                        followup messages and the trashing of boards. In
+                        specific, it weeds out non-numbers and duplicates
+                        from the list of possible followups.
+                  -     Added ability to limit field sizes of posts.
+                  -     Added option to show poster's IP address.
+___________________________________________________________________________
+
+As with all of my scripts which you can find at my scripts archive:
+
+http://worldwidemart.com/scripts/
+
+These are provided at no charge.  You can modify/edit/change/anything you 
+want to these scripts.  There are only two things that I ask, neither of 
+which will you be sued for if you don't follow.  :-)
+
+1)  Please let me know where these are being used  I like to see my work in
+    action.  you can let me know simply by filling out the on-line from
+    located at:	   http://worldwidemart.com/scripts/implement.html
+2)  Please keep my name somewhere in the script. It doesn't have to be
+    noticeable to users, but I appreciate it being in the script somewhere 
+    in case you ever pass it on or anything like that.
+3)  Oh yah, there's a third one, but its the one I care least about.  I 
+    know how many people like to keep everyone at their own site and  
+    therefore do not link to the outside too often, but if at all possible, 
+    I would appreciate a link to my scripts archive.  Once again, this 
+    isn't necessary.
+4)  Do the rules ever stop you say?  This last one is easy to follow:
+  			***HAVE FUN!***
+
+___________________________________________________________________________
+Matt Wright * mattw@worldwidemart.com * http://worldwidemart.com/scripts/

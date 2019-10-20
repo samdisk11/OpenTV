@@ -1,0 +1,152 @@
+->Super WebTV Viewer 1.0 Template
+
+# DO NOT EDIT UNLESS YOU KNOW WHAT YOU'RE DOING!!!
+
+unedited-hash: d7bde1adbe3549f58dd95425d3ac2af9
+path: "WebTV-Viewer\WebTVIntel--1.0.exe"
+vers: "WebTV Viewer 1.0 (Build 146)"
+
+# Image Base:  0x00400000
+
+# Templated viewer metadata
+
+# Change default (viewer) boot URL to client:GoToConn and modify default home URL
+string-code 1DEA0C: "client:GoToConn"
+string-code 1DEA30: "client:GoToConn"
+hex-code F8418: 680C045E00
+hex-code 1063A0: 680C045E00
+
+# Change default wtv-1800 IP to Pro's primary wtv-1800 IP.
+string-code 1D7920: "10.0.0.1"
+## Use this if you want to set it back.
+##string-code 1D7920: "10.0.128.1"
+
+# Prepare incatnation hack (before code start)
+# push 00400270
+hex-code 268A5: 6870024000
+
+
+
+# Fix wtv-1800:/preregister? request
+hex-code 203B6: 68E8655D00
+string-code 1D4BD0: "scriptless-visit-reason"
+string-code 1D4BE8: "10"
+
+
+
+#401A00
+
+# Prepare encryption hack
+# push 005A6C70
+hex-code 134619: 68706C5A00
+
+# NULL unwanted objects, ending the string immediately
+hex-code 1E06B4: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000
+hex-code 1E06F0: 000000000000000000000000000000000000000000000000
+
+# Resource edits
+section-code .rsrc: Templates\ResData--1.0.res
+
+
+define wtv-incarnation: {
+
+block-offset: 270
+block-size: 383
+write-end: yes
+
+headers: {
+wtv-tourist-enabled:
+wtv-demo-enabled:
+wtv-default-client-scriptprops:
+wtv-default-client-useragent:
+wtv-system-cpuspeed:
+wtv-system-sysconfig:
+wtv-need-upgrade
+wtv-used-8675309
+wtv-my-disk-sucks-sucks-sucks:
+wtv-disk-first-error:
+wtv-disk-size:
+wtv-client-address:
+}
+
+}
+
+
+define wtv-encryption: {
+
+block-offset: 1A6070
+block-size: 398
+write-end: yes
+
+headers: {
+wtv-client-serial-number:
+wtv-user-requested-upgrade:
+wtv-system-cpuprid:
+wtv-system-version:
+wtv-capability-flags:
+wtv-client-bootrom-version:
+wtv-client-rom-type:
+wtv-system-chipversion:
+User-Agent:
+}
+
+}
+
+define power-off: {
+
+block-offset: 1B4AC8
+block-size: 543
+isspecial: yes
+multiple: yes
+views: 3
+description: "Power off codes"
+
+forward I: "Function Off"
+forward I: "Function ID?"
+forward I: "PO number"
+forward I: "Alternative"
+
+}
+
+define client: {
+
+block-offset: 1D7270
+block-size: 1014
+isspecial: yes
+multiple: yes
+views: 15
+description: "Client functions"
+noblanks: yes
+
+forward Z*: "Client Function"
+
+}
+
+define HTML: {
+
+block-offset: 1DA430
+block-size: 1010
+isspecial: yes
+multiple: yes
+views: 15
+description: "HTML Tags"
+noblanks: yes
+
+forward Z*: "HTML Tag"
+
+}
+
+
+define SCODE: {
+
+block-offset: 1D8FEC
+block-size: 534
+isspecial: yes
+multiple: yes
+views: 15
+description: "Secret '&codes;'"
+noblanks: yes
+
+forward Z*: "&code;"
+
+}

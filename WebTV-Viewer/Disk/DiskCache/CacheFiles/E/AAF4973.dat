@@ -1,0 +1,70 @@
+Location: http://games.net4tv.com/games/home/_promo.css
+Access-Level: Unrestricted
+Content-Type: application/www-form-urlencoded
+Content-Length: 1469
+Last-Modified: Thu, 02 Jun 2016 22:09:52 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:18 GMT
+
+/* promotional blocks */
+
+#giftlink {
+	background: url(images/dress/features/train-lady-sidebar2.jpg);
+	height: 14em;
+	background-position: 0px -1.25em;
+	background-size: 100%  16em;
+}
+#giftlink-tophead {
+	width: 7em; height: 5em; 
+	/* background: url(images/features/your-games-here.png); 
+	background-position: 0px -0.5em ; background-repeat: no-repeat; 
+	background-size: 16em 6em;*/
+
+	font-family: 'Open Sans',Calibri,"Trebuchet MS","Lucida Sans",Arial,sans-serif;	
+	font-size: 1.3em;	
+	font-weight: 800;
+	margin: 0 .25em .5em .125em;	
+	line-height: 1.1em;	
+	text-align: center;			
+}
+#giftlink-text {
+	padding-top: .125em;
+	font-family: 'Tinos', serif;
+	font-size: 1.2em;	
+	font-weight: 400;	
+	color: #ffffff;	
+	background-color:rgba(0,0,0,.80);
+	height: 5em;
+}
+.gifttext {
+	margin: 0 .25em .5em .125em;	
+}
+#giftlink a {
+	color: #ecbb00;
+	font-family: 'Open Sans',Calibri,"Trebuchet MS","Lucida Sans",Arial,sans-serif;	
+	font-size: 1.0em;	
+	font-weight: 800;
+	padding-bottom: .25em;	
+}
+/* Social Media */
+
+.socialicon {
+	position: relative;
+	float: left;
+	width: 3em;
+	height: 3em;
+	background-size:3em 3em;
+	background-repeat:no-repeat;
+	margin-left: .25em;	
+}
+.facebook50 {
+	background-image: url(images/dress/logos/facebook50.png);
+}
+.twitter50 {
+	background-image: url(images/dress/logos/twitter50.png);
+}
+.googleplus50 {
+	background-image: url(images/dress/logos/googleplus50.png);
+}
+.pinterest50 {
+	background-image: url(images/dress/logos/pinterest50.png);
+}

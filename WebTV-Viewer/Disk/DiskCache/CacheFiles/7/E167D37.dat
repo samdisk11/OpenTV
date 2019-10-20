@@ -1,0 +1,131 @@
+Location: http://games.net4tv.com/games/home/_main.logic.js
+Access-Level: Unrestricted
+Content-Type: application/javascript
+Content-Length: 2784
+Last-Modified: Fri, 31 Jul 2015 21:02:19 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:19 GMT
+
+// _main.logic.js
+
+//var page = APP.page;
+var activetab = 1;
+
+function selecttab(tabnum) {
+	if (tabnum != activetab) {
+
+		DR["t"+activetab].removeClassName("tabactive");
+		DR["tp"+activetab].style.display = "none";
+		DR["t"+tabnum].addClassName("tabactive");
+		DR["tp"+tabnum].style.display = "block";
+		activetab = tabnum;
+		//zoomRealign();
+	}
+}
+
+function navin(num) {
+
+}
+function navout(num) {
+
+}
+
+
+var leaderlist = [
+	{"boardnum":  "0",
+	 "gamename": 	"Leaderboards",
+	 "canonical": "leaders",
+	 "cookie":		"leaders"},
+	{"boardnum":  "1",
+	 "gamename": 	"Dotty",
+	 "canonical": "dots",
+	 "cookie":		"dots"},
+	{"boardnum":  "2",
+	 "gamename": 	"Herding Cats",
+	 "canonical": "cats",
+	 "cookie":		"cats"},
+	{"boardnum":  "3",
+	 "gamename": 	"Bijoux",
+	 "canonical": "bijoux",
+	 "cookie":		"bijoux"},
+	{"boardnum":  "4",
+	 "gamename": 	"Bijoux Deluxe",
+	 "canonical": "bijoux",
+	 "cookie":		"bijouxd"},
+	{"boardnum":  "5",
+	 "gamename": 	"Chox",
+	 "canonical": "chox",
+	 "cookie":		"chox"},
+	{"boardnum":  "6",
+	 "gamename": 	"QuickChox",
+	 "canonical": "choxq",
+	 "cookie":		"choxq"},
+	{"boardnum":  "7",
+	 "gamename": 	"AlienNation 8",
+	 "canonical": "alienation",
+	 "cookie":		"alienn"},
+	{"boardnum":  "8",
+	 "gamename": 	"AlienNation 8",
+	 "canonical": "alienation",
+	 "cookie":		"alienn"},
+	{"boardnum":  "9",
+	 "gamename": 	"AlienNation 5",
+	 "canonical": "alienation",
+	 "cookie":		"alienn2"},
+	{"boardnum":  "10",
+	 "gamename": 	"Alienz",
+	 "canonical": "alienz",
+	 "cookie":		"alienz"},
+	{"boardnum":  "11",
+	 "gamename": 	"Cinqo",
+	 "canonical": "cinqo",
+	 "cookie":		"cinqo"},
+	{"boardnum":  "12",
+	 "gamename": 	"Barnyard Bustle",
+	 "canonical": "barnyard",
+	 "cookie":		"barnyard"},
+	{"boardnum":  "13",
+	 "gamename": 	"Solitaire Stud",
+	 "canonical": "solstud",
+	 "cookie":		"stud"},
+	{"boardnum":  "14",
+	 "gamename": 	"Breakout",
+	 "canonical": "breakout",
+	 "cookie":		"breakout"},
+	{"boardnum":  "15",
+	 "gamename": 	"Breakout Original",
+	 "canonical": "breakout",
+	 "cookie":		"breakouto"},
+	{"boardnum":  "16",
+	 "gamename": 	"Lucky Dog",
+	 "canonical": "luckydog",
+	 "cookie":		"dogs"},
+	{"boardnum":  "17",
+	 "gamename": 	"Take Two",
+	 "canonical": "take2",
+	 "cookie":		"take2"},
+	{"boardnum":  "18",
+	 "gamename": 	"Somethin' Fishy",
+	 "canonical": "fish99",
+	 "cookie":		"fish99"},
+	{"boardnum":  "19",
+	 "gamename": 	"Crazy Quilt",
+	 "canonical": "quilt",
+	"cookie":		"quilt"}];
+
+function goMessages() {
+
+}
+
+function goStrip(){
+	
+	setTimeout(function(){
+		el=document.getElementById('strip');
+		el.innerHTML="SCHEDULED MAINTENANCE TONIGHT (TUES-WED) 10PM-3AM PACIFIC TIME. <a href='http://games.net4tv.com/forums/viewtopic.php?t=19306'>Click for more info</a>.";	
+		el.style.display = 'block';
+		el.style.visibility= 'visible';
+	},1000);
+}
+
+//goStrip();
+
+

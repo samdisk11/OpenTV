@@ -1,0 +1,142 @@
+##############################################################################
+# WWWBoard Admin                Version 2.0 ALPHA 2.1                        #
+# Copyright 1996 Matt Wright    mattw@worldwidemart.com                      #
+# Created 10/21/95              Last Modified 11/25/95                       #
+# Scripts Archive at:           http://www.worldwidemart.com/scripts/        #
+##############################################################################
+# COPYRIGHT NOTICE                                                           #
+# Copyright 1996 Matthew M. Wright  All Rights Reserved.                     #
+#                                                                            #
+# WWWBoard may be used and modified free of charge by anyone so long as      #
+# this copyright notice and the comments above remain intact.  By using this #
+# code you agree to indemnify Matthew M. Wright from any liability that      #  
+# might arise from it's use.                                                 #  
+#                                                                            #
+# Selling the code for this program without prior written consent is         #
+# expressly forbidden.  In other words, please ask first before you try and  #
+# make money off of my program.                                              #
+#                                                                            #
+# Obtain permission before redistributing this software over the Internet or #
+# in any other medium.  In all cases copyright and header must remain intact.#
+##############################################################################
+
+WWWAdmin is finally here!  I know it used to be a pain to have to maintain 
+WWWBoard without a program, so I am currently developing WWWAdmin.  Right 
+now it performs the basic functions, which allow you to remove messages and 
+change your password.  I will explain each different process and how to set
+up this program below.  I will also list some of the features you can expect
+in upcoming releases.
+
+The variables and options in WWWAdmin should correspond directly to those in 
+WWWBoard.  In all except two cases, you can copy the variables out of 
+wwwboard.pl and place them in wwwadmin.pl.  There is one new variable in 
+wwwadmin.pl and one variable that will need to be changed:
+
+	$cgi_url = "http://your.host.xxx/cgi-bin/wwwadmin.pl";
+		This variable needs to be changed from the url to 
+	   wwwboard.pl to the url to wwwadmin.pl.  This may simply mean 
+	   changing the file name at the end of the url.
+
+	$passwd_file = "passwd.txt";
+		This is a new variable and simply gives the filename of the 
+	   password file in relation to $basedir.  So if you place this 
+	   file in $basedir, you can simply set this variable equal to the 
+	   filename, which is most commonly passwd.txt
+____________________________________________________________________________
+
+RUNNING WWWADMIN.
+	WWWAdmin is a self-contained script, in that all you have to do is 
+   call the script with a plain url (The url you used in $cgi_url) and it 
+   will give you a form which displays all of your options.  The options 
+   that are currently available in this release are:
+	Remove Messages
+	Remove Messages by Date
+	Remove Messages by Author
+	Remove Messages by Sorted Number
+	Change WWWAdmin Password
+
+All of these options require you to use a password and username once you 
+take the link.  The default username and password for WWWAdmin are:
+
+Username: WebAdmin
+Password: WebBoard
+
+They are case sensitive, so make sure you type them in correctly.  I suggest 
+you jump down to the explanation on Changing WWWAdmin Password before 
+you make this wwwboard available to the public.  A brief description of 
+how each WWWAdmin function works is below:
+
+REMOVE MESSAGES
+===============
+	When selecting this link, you will be taken to a form which gives you 
+the article number, two radio boxes, the subject, author and date that 
+the article was posted, for all articles.  The form is put inside of a 
+Netscape table, but I have tested it and it also works with lynx (a text 
+based browser) so I am sure it will work with others.  You can check the 
+radio boxes to the side of the messages that you wish to remove from 
+your WWWBoard.  Checking the check box to the left, will remove the 
+entire thread, while checking the check box on the right, simply removes 
+that single posting, whether it is imbeded in a thread or not.  This 
+will also remove the message out of your messages/ directory, and if you 
+select to remove the thread, it will remove all messages in that thread 
+out of your messages/ directory.
+
+REMOVE MESSAGES BY DATE
+=======================
+	This link will pop up a form that looks something like this:
+
+  Checkbox   Date1   # of Messages  Message Numbers
+
+You can click in the checkbox next to any dates of your choice and it 
+will remove all files that were posted on that date.  To see what files 
+are going to be removed and how many, you can look at the columns 
+labeled # of messages and message numbers.  If messages of an earlier 
+date happen to be at the head of a thread, they will be removed and the 
+next response down in the thread becomes the head of that thread.  It 
+will only remove messages with that date.
+
+REMOVE MESSAGES BY AUTHOR
+=========================
+	This link will pop up a form very similar to that which the Remove 
+Message by Date link brought up.  Except instead of different dates, you 
+will see the names of authors of messages.  You can check the checkbox 
+next to an authors name to remove all postings that he or she posted to 
+your message board.
+
+REMOVE MESSAGES BY SORTED NUMBER
+================================
+	This link brings up a form identical to the plain Remove Messages form, 
+except that the postings are sorted from lowest number to highest 
+number.  This can be useful if you want to delete postings in the order 
+they were posted, but this is probably the l east useful remove function.
+
+CHANGE PASSWORD
+===============
+	This form will ask you to fill in your current username and password 
+and allow you to change your username and password to whatever you 
+like.  If you want to keep the username the same, you can simply not 
+fill in the 'New Username' part of the script.  When changing your 
+password, which I suggest you do right when you get WWWAdmin working, 
+you will need to type the new password two times in a row, just to make 
+sure you don't mis-type it.  Then, hit submit and if you input the 
+correct old username and password, you will be given a response that 
+tells you the new username and password.  Do not forget your password, 
+because it will be encrypted in the passwd.txt file, just like your Unix 
+login password.  You will need to re-download the wwwadmin tool...
+__________________________________________________________________________
+
+FUTURE FEATURES
+===============
+	I will continue to work on this admin tool and hopefully make it much 
+more powerful.  To do this, I need to know what you would like to be 
+able to do with it.  Some of my ideas include being able to edit any 
+post, and possibly moving them around in hierarchies.  Let me know what 
+else you would like to see this thing do.
+__________________________________________________________________________
+
+HISTORY
+
+Version 2.0 A2	- 11/25/95	- Released WWWAdmin Tool with WWWBoard 2.0
+				  ALPHA 2
+__________________________________________________________________________
+Matt Wright - mattw@worldwidemart.com

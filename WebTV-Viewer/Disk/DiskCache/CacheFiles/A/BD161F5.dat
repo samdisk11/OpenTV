@@ -1,0 +1,33 @@
+Location: http://games.net4tv.com/games/common/scripts/library/class.js
+Access-Level: Unrestricted
+Content-Type: application/javascript
+Content-Length: 1516
+Last-Modified: Fri, 31 Jul 2015 21:02:23 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:11 GMT
+
+// !::::::::::::::::::::  CLASS MANAGEMENT LIBRARY :::::::::::::::::::::::::::::
+Element.prototype.hasClassName = function (a) {return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);};
+Element.prototype.addClassName = function (a) {if (!this.hasClassName(a)) {this.className = [this.className, a].join(" ");}};
+Element.prototype.removeClassName = function (b) {if (this.hasClassName(b)) {var a = this.className; this.className = a.replace(new RegExp("(?:^|\\s+)" + b + "(?:\\s+|$)", "g"), " ");}};
+Element.prototype.toggleClassName = function (a) {this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);};
+Element.prototype.swapClassName = function (a,b) {this.removeClassName(a); this.addClassName(b);};
+
+// !:::::::::::::::::::  OBJECT INSPECTOR ::::::::::::::::::::::::::::::::::::::
+function ObjInspect(Obj, sSeparator, sText){
+    if (typeof sText == 'undefined') sText = '';
+    if (typeof sSeparator == 'undefined') sSeparator = ',';
+    if (sText.length > 64) return '[MAX LEN!]';
+    var r = [];
+    for(var p in Obj){
+        var t = typeof Obj[p];
+        if (t == 'number') t = 'n';
+        else if (t == 'string') t = 's';
+        else if (t == 'boolean') t = 'b';
+        else if (t == 'function') t = 'fnct';
+        else if (t == 'null') t = 'N';
+        else if (t == 'undefined') t = 'undef';
+        r.push(sText + p + '[' + t + ']=' + (t == 'object' ? 'obj:' +
+          ObjInspect(Obj[p], sText + ';') : Obj[p]));
+        }
+    return r.join(sText + sSeparator);
+}

@@ -1,0 +1,658 @@
+Location: http://games.net4tv.com/games/common/templates/omni/_omni.logic.js
+Access-Level: Unrestricted
+Content-Type: application/javascript
+Content-Length: 20055
+Last-Modified: Wed, 04 Jul 2018 01:09:24 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:13 GMT
+
+//'use strict';
+$O.version=2.0;
+//!:::::::::::::::TEMPLATE INTERACTIVITY JS :::::::::::::::::::::::::::::::::::
+var talkyTimeout=null;
+var talkyTimeout2=null;
+var loadTimer=null;
+
+function goRules(){
+	//doResize();// TEMP
+	DR.rulesArea.style.visibility='visible';
+	DR.appArea.swapClassName('areaOn','areaDim');
+	DR.rulesArea.swapClassName('areaOff','areaOn');
+	focusMe('closeRulesButton');
+	APP.statisHistory=APP.statis;
+	APP.statis='rules';
+}
+
+function closeRules(){
+	DR.appArea.swapClassName('areaDim','areaOn');
+	DR.rulesArea.swapClassName('areaOn','areaOff');
+	var x=setTimeout(function(){hideRules();},300);
+	var r=setTimeout(function(){DR.rulesContent.style.top=0;},1000);
+	focusMe('rules');
+	APP.statis=APP.statisHistory;
+}
+
+function hideRules(){DR.rulesArea.style.visibility='hidden';}
+
+function goPrefs(){
+	DR.prefsArea.style.visibility='visible';
+	DR.appArea.swapClassName('areaOn','areaDim');
+	DR.prefsArea.swapClassName('areaOff','areaOn');
+	//focusMe('closeRulesButton');
+	APP.statisHistory=APP.statis;
+	APP.statis='prefs';
+}
+
+function closePrefs(){
+	DR.appArea.swapClassName('areaDim','areaOn');
+	DR.prefsArea.swapClassName('areaOn','areaOff');
+	var x=setTimeout(function(){hidePrefs();},300);
+	focusMe('prefs');
+	APP.statis=APP.statisHistory;
+}
+
+function hidePrefs(){DR.prefsArea.style.visibility='hidden';}
+
+function sayTalky(sayWhat, howLong, contentClass){
+	/*
+		howLong is in milliseconds (ms)
+		if howLong is negative, the content area is blanked after howLong but the talker frame remains visible (Persistent talker).
+		if howLong is positive and greater than 1, the talker is turned off after howLong.
+		if howLong is 0 or blank, the content is updated but left on.
+		if howLong is 1 or 'clear', the content is blanked and talker frame is hidden.
+		contentClass [optional] the class to apply to the talkyContent.
+	*/	
+	
+	if(typeof contentClass  === 'undefined') var contentClassName='tk_Blank';
+	else contentClassName='tk_'+contentClass;
+	
+	window.clearTimeout('talkyTimeout');
+	window.clearTimeout('talkyTimeout2');
+	howLong = (typeof howLong === "undefined") ? 0 : howLong;
+
+	if(howLong==1 || howLong=='clear'){
+		sayTalky('',0);
+		DR.talkyArea.style.visibility='hidden';
+	}
+	else if(howLong==0){ // UPDATE TALKY BUT LEAVE ON   0
+		DR.talkyTell.innerHTML='<p>'+sayWhat+'</p>';
+		DR.talkyContent.className='talkyContent talky cf '+contentClassName;
+		DR.talkyArea.style.visibility='visible';
+		DR.talkyArea.swapClassName('areaOffFast','areaOnFast');
+	}
+
+	else if (howLong<0){ // UPDATE TALKY THEN BLANK IT AFTER INTERVAL    neg number
+		howLong=Math.abs(howLong);
+		DR.talkyArea.style.visibility='visible';
+		DR.talkyTell.innerHTML='<p>'+sayWhat+'</p>';
+		DR.talkyContent.className='talkyContent talky cf '+contentClassName;
+		talkyTimeout=window.setTimeout(function(){sayTalky('',0)},howLong);
+	}
+
+	else if(howLong>1){// UPDATE TAKLY THEN HIDE IT AFTER INTERVAL
+		sayTalky(sayWhat,0, contentClass);
+		talkyTimeout=window.setTimeout(function(){
+				DR.talkyArea.swapClassName('areaOnFast','areaOffFast');
+				sayTalky('',0);// BLANKS TALKY
+				talkyTimeout2=window.setTimeout(function(){
+					DR.talkyArea.style.visibility='hidden';
+				},5);
+		},howLong);
+	}
+}
+
+function sayScore(whichBoard, which, num){
+	DR[whichBoard+which+'Count'].innerHTML="<p>"+addCommas(num)+"</p>";
+	//console.log(whichBoard, which, num);
+}
+
+function addCommas(nStr){
+	nStr += ''; var x = nStr.split('.'); var x1 = x[0]; var x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {x1 = x1.replace(rgx, '$1' + ',' + '$2');}
+	return x1 + x2;
+}
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+String.prototype.titleCase = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
+function goExit(){
+	 if(!APP.started || APP.over) {doExit();}
+	 else{dialog.confirmm(LOC.dialogg.exitConfirm, function(){doExit()}, function(){dontExit()});}
+}
+
+function doExit(){
+		if (typeof PREFS.global['return'] != 'undefined') document.location='../'+PREFS.global['return'];
+		else document.location='../'+PREFS.global.home;
+}
+
+function dontExit(){}
+
+function closeLoading(){
+		APP.loadingNow=0;
+		DR.loadingArea.swapClassName('areaOn','areaOff');
+		DR.appArea.swapClassName('areaOff','areaOn');
+		if(APP['id']=='home'){
+			DR.appAreaGroup.swapClassName('areaOff','areaOn');
+		}
+		DR.bg.swapClassName('areaOff','areaOn');
+		loadTimer=setTimeout(function(){hideLoading();},100);
+		try{
+			if(APP.startPaused) APP.statis='pause';
+			else APP.statis='play';
+		}
+		catch(error){
+			APP.statis='play';
+		}
+		
+}
+
+function goCloseLoading(){loadTimer=setTimeout(function(){closeLoading()}, CONSTRUCTO.time.closeLoading*1000);}
+
+function hideLoading(){DR.loadingArea.style.visibility='hidden';}
+
+function goLoading(){
+		APP.statis='loading';
+
+		if(APP['id']!='home'){
+			DR.loadingArea.style.visibility='visible';
+			APP.loadingNow=1;
+			DR.loadingArea.swapClassName('areaOff','areaOn');
+			//DR.appArea.swapClassName('areaOn','areaOff');
+		}
+		//else{	}
+			goCloseLoading();
+}
+
+function goNew(){history.go(0);}
+
+// ::::::::::::::::::::::::::: MODALS ::::::::::::::::::::::::::::::::::::::::::
+var dialog = new Object();
+
+dialog.close = function (){
+	DR.dialogArea.style.visibility='hidden';
+	DR.appArea.swapClassName('areaDim','areaOn');
+	DR.dialogArea.swapClassName('areaOn','areaOff');
+	DR.dialogContent.children[0].innerHTML='';
+	APP.statis=APP.statisHistory;
+	focusMe(NAV.focus.remember);
+}
+
+dialog.dont = function(){}// NULL FUNCTION
+dialog.doo = function(){}// NULL FUNCTION
+
+dialog.ask = function(dlog){
+	NAV.focus.remember=NAV.focus.current;
+	APP.statisHistory=APP.statis;
+	APP.statis='dialog';
+	DR.dialogArea.style.visibility='visible';
+	DR.appArea.swapClassName('areaOn','areaDim');
+	DR.dialogArea.swapClassName('areaOff','areaOn');
+	focusMe('dButt0');
+	DR.dialogContent.children[0].innerHTML=dlog.ask;
+	var bCt=dlog.opt.length;
+	for(var n=0; n<bCt; n++){
+		el='dButt' + n;
+		
+		butt.relink(el, function(){dialog.close();});
+		
+		$O.addEv(el,"pointerdown", dlog.funct[n], "add");
+		
+		if(dlog.opt!== undefined) butt.rename('dButt'+n,dlog.opt[n]);
+		
+		document.getElementById('pdButt'+n+'Color').style.display='inline-block';
+		if(n+1==bCt) NAV['dButt'+n].right='dButt'+n;
+		else NAV['dButt'+n].right='dButt'+(n+1);
+	}
+	if(bCt <4 ){// HIDE THE 4TH
+		document.getElementById('pdButt3Color').style.display='none';
+		if(bCt <3 ){// HIDE THE 3RD
+			document.getElementById('pdButt2Color').style.display='none';
+			if(bCt <2 ){// HIDE THE 2ND
+				document.getElementById('pdButt1Color').style.display='none';
+			}
+		}
+	}
+}
+
+dialog.confirmm=function (str, yesFunct, noFunct){
+	dlog={
+	'ask':str, 
+	'opt':[LOC['dialogg']['yes'],LOC['dialogg']['no']],
+	'funct':[yesFunct, noFunct],
+	'col':['1','2'],
+	};
+	dialog.ask(dlog);
+}
+
+// :::::::::::::::::::::::::::: END MODALS :::::::::::::::::::::::::::::::::::::
+
+// ::::::::::::::::::::::::::::: LEADERS :::::::::::::::::::::::::::::::::::::::
+
+var leaders = new Object();
+
+leaders.offer = function(){
+	DR.leadersArea.style.visibility='visible';
+	butt.rename('leadersNavButt0','Post');
+	butt.rename('leadersNavButt1','Cancel');
+	butt.recolor('leadersNavButt1',2);
+	butt.relink('leadersNavButt0', leaders.doo);
+	butt.relink('leadersNavButt1', leaders.dont);
+	DR.appArea.swapClassName('areaOn','areaDim');
+	DR.leadersArea.swapClassName('areaOff','areaOn');
+	focusMe('leadersNavButt0');
+	APP.statisHistory=APP.statis;
+	APP.statis='leaders';
+}
+
+leaders.view = function(){document.location='/games/leaders/';}
+
+leaders.doo = function(){
+	leaders.postTo();
+	butt.rename('leadersNavButt0','Close');
+	butt.rename('leadersNavButt1','Leaders');
+	butt.recolor('leadersNavButt0',2);
+	butt.recolor('leadersNavButt1',1);
+	butt.relink('leadersNavButt0', leaders.dont);
+	butt.relink('leadersNavButt1', leaders.view);
+	focusMe('leadersNavButt0');
+}
+
+leaders.dont = function(){
+	DR.leadersArea.swapClassName('areaOn','areaOff');
+	DR.appArea.swapClassName('areaOff','areaOn');
+	DR.appArea.swapClassName('areaDim','areaOn');
+	butt.rename('leadersNavButt0','');
+	butt.rename('leadersNavButt1','');
+	butt.recolor('leadersNavButt0',0);
+	butt.recolor('leadersNavButt1',0);
+	butt.relink('leadersNavButt0', null);
+	butt.relink('leadersNavButt1', null);
+	DR.leadersArea.style.visibility='hidden';
+	APP.statis=APP.statisHistory;
+	focusMe('exit');
+}
+
+leaders.say = function(sayWhat, contentClass){
+	/*contentClass [optional] the class to apply to the leadersContent.*/	
+	if(typeof contentClass  === 'undefined') var contentClassName='leaders_trophy';
+	else contentClassName='leaders_'+contentClass;
+	DR.leadersTell.children[0].innerHTML+='<li>'+sayWhat+'</li>';
+	DR.leadersContent.className='leadersContent cf '+contentClassName;
+}
+
+leaders.clear = function(){
+	DR.leadersTell.children[0].innerHTML='';
+}
+
+
+function getXMLHttpRequestObject() {
+	var ajax = false;
+	if (window.XMLHttpRequest) {
+		ajax = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		try { ajax = new ActiveXObject("Msxml2.XMLHTTP.6.0");} 
+		catch (e) {}
+		try { ajax = new ActiveXObject("Msxml2.XMLHTTP.3.0"); } 
+		catch (e) {}
+		try { ajax = new ActiveXObject("Microsoft.XMLHTTP");			
+			} catch (e) { }
+			}
+		return ajax;
+	}
+
+/****** This is GET to update the all time high score in memberhigh *****/
+var ajRequest = new getXMLHttpRequestObject();
+
+leaders.memberHighScores = function() {
+	var memberhightalk;
+	var queryString = "?member=" + member + "&game=" + game + "&hscore=" + highscore + "&orderrank="+orderrank+"&date="+new Date();	
+	ajRequest.open("GET", "/games/common/scripts/scoring/_memberhigh.php" + queryString, true);
+	ajRequest.onreadystatechange = function(){
+		if(ajRequest.readyState == 4){
+			memberhightalk = ajRequest.responseText;
+			leaders.say(memberhightalk);
+			LEADERS['alltimehigh'] = highscore;
+		}
+	}
+	ajRequest.send(null); 
+}
+
+
+leaders.postTo = function() {
+	var posttext;
+	leaders.clear();
+	var parameters = "memberid="+member+"&gamename="+game+"&score="+highscore+"&orderrank="+orderrank;
+	ajRequest.open("POST", "/games/common/scripts/scoring/_scoreupdate.php", true);
+	ajRequest.onreadystatechange=function(){
+		if (ajRequest.readyState==4){
+			if (ajRequest.status==200 || window.location.href.indexOf("http")==-1){
+				posttext = ajRequest.responseText;
+				LEADERS['high_score'] = highscore;
+  			}
+  			else{
+  				posttext = "An error has occured making the request";
+  			}
+  			leaders.say(posttext);
+ 		}
+	}	
+	ajRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	ajRequest.send(parameters);			
+}
+
+
+// ::::::::::::::::::::::::::::: END LEADERS :::::::::::::::::::::::::::::::::::
+
+function goPage(page){document.location=page;}
+
+function addScrollCSS(){
+	if (typeof PREFS.global.scroll != 'undefined' && PREFS.global.scroll)document.documentElement.addClassName('scroll');
+	else document.documentElement.addClassName('noscroll');
+}
+
+// ::::::::::::::::::::::::::::: GRID CALC :::::::::::::::::::::::::::::::::::::
+function getRow(getIndx, getCols) {return (Math.floor(getIndx/getCols));}//gets the row from the array index value
+function getCol(getIndx, getCols) {return (getIndx % getCols);}//gets the column from the array index value
+function getIndex(x,y, getCols){ return ((y*getCols)+x);}
+function getCoords(spot,cols){
+  // RETURNS results ARRAY as (prefix, r, c, index)
+  var result = [];
+  var x=spot.split('l');
+  x = x[1].split('r');
+  result[0] = x[0];
+  x = x[1].split('c');
+  result[1] = parseInt(x[0]);  
+  result[2] = parseInt(x[1]);  
+  result[3] = getIndex(result[2], result[1], cols);
+  return result;
+}
+
+// =============================================================================
+function Timeout(fn, interval) {
+    var id = setTimeout(fn, interval);
+    this.cleared = false;
+    this.clear = function () {
+        this.cleared = true;
+        clearTimeout(id);
+    };
+}
+
+/* USAGE:
+		var t = new Timeout(function () {
+			alert('this is a test');
+		}, 5000);
+		console.log(t.cleared); // false
+		t.clear();
+		console.log(t.cleared); // true
+*/
+// !========================= FULLSCREEN =======================================
+function goFullscreen(){
+		if(DETECTO.engine=='webkit'){
+			if(document.webkitFullscreen)	document.webkitCancelFullscreen()
+			else							document.body.webkitRequestFullscreen();
+		}
+		if(DETECTO.engine=='moz'){
+			if(document.mozFullscreen)		document.mozCancelFullscreen()
+			else							document.body.mozRequestFullscreen();
+		}
+		if(DETECTO.engine=='edge'){
+			if(document.fullscreen)		document.cancelFullscreen()
+			else							document.body.requestFullscreen();
+		}
+}
+// !==================== BUTTON FUNCTIONS ======================================
+var butt=new Object();
+
+butt.rename=function(id, lab){document.getElementById(id+"Label").innerHTML=lab;}
+
+butt.relink=function(id, funct){
+	DR[id].onclick=null;
+	DR[id].onmousedown=null;
+	DR[id].onmouseup=null;
+	DR[id].ontouchstart=null;
+	DR[id].ontouchstop=null;
+	DR[id].onpointerdown=null;
+	DR[id].onpointerup=null;
+	$O.addEv(id,'pointerdown',funct,'add');
+}
+
+butt.recolor=function(id, newColorNum){
+	var oldColor=DR[id].getAttribute('data-color');
+	document.getElementById("p"+id+"Color").swapClassName(oldColor, "buttC"+newColorNum);
+	DR[id].setAttribute('data-color', "buttC"+newColorNum);
+}
+
+butt.dim=function(id, yesNo){
+	if(yesNo) document.getElementById("p"+id+"Color").addClassName('dimButt');   
+	else document.getElementById("p"+id+"Color").removeClassName('dimButt');   
+}
+
+butt.notice=function(id, yourClass, yesNo){
+	if(yourClass=='') yourClass='noticeButt';
+	if(yesNo) document.getElementById("p"+id+"Color").addClassName(yourClass);   
+	else document.getElementById("p"+id+"Color").removeClassName(yourClass);   
+}
+
+butt.sayDisplay=function(id, sayWhat){DR[id+'ButtDisplay'].innerHTML="<p>"+sayWhat+"</p>";}
+
+function sayButtDisplay(id, sayWhat){DR[id+'ButtDisplay'].innerHTML="<p>"+sayWhat+"</p>";}
+
+// !======================= DEFAULT THEME ======================================
+function initTheme(){
+	if(typeof themeNames === 'undefined') {window.themeNames = new Array();}
+	if(typeof themeNum === 'undefined') {window.themeNum = 0;}
+	try {
+		themeNum=PREFS[APP.id]['themeNum']; 
+		if(themeNum>=themeNames.length) themeNum=0;
+	}
+	catch (error){themeNum=0;}
+	DR.pageContainer.addClassName('theme'+themeNum);
+	if (typeof DR.themeButtDisplay != "undefined") {butt.sayDisplay('theme', themeNames[themeNum]);}
+	else if(typeof DR.themer != "undefined") {DR.themer.innerHTML=themeNames[themeNum];}
+}
+
+function goTheme(){
+	DR.pageContainer.removeClassName('theme'+themeNum);
+	if(themeNum+1 >= themeNames.length) {themeNum=0;}
+	else {themeNum++;}
+	DR.pageContainer.addClassName('theme'+themeNum);
+	if (typeof DR.themeButtDisplay != "undefined") {butt.sayDisplay('theme', themeNames[themeNum]);}
+	else if(typeof DR.themer != "undefined") {DR.themer.innerHTML=themeNames[themeNum];}
+	setPref(APP.id, 'themeNum', themeNum);
+}
+
+// !======================= OMNI THEME ======================================
+$O.initTheme = function(){
+	if(typeof this.themeNames === 'undefined') {
+		this.themeNames = new Array();
+	}
+	this.themeNum=0;
+	try {this.themeNum=PREFS[APP.id]['themeNum']; 
+		if(this.themeNum>=this.themeNames.length) this.themeNum=0;
+	}
+	catch (error){this.themeNum=0;}
+	
+	DR.pageContainer.addClassName('theme'+this.themeNum);
+	if (typeof DR.themeButtDisplay != "undefined") {butt.sayDisplay('theme', this.themeNames[this.themeNum]);}
+	else if(typeof DR.themer != "undefined") {DR.themer.innerHTML=this.themeNames[this.themeNum];}
+}
+
+$O.goTheme = function(){
+	//alert(arguments[0]);
+	DR.pageContainer.removeClassName('theme'+this.themeNum);
+	if(arguments.length!=0){
+		if(arguments[0]<this.themeNames.length){this.themNum=arguments[0];}
+		else {this.themeNum=0;}
+	}
+	else{
+		if(this.themeNum+1 >= this.themeNames.length) {this.themeNum=0;}
+		else {this.themeNum++;}
+	}
+
+	
+	DR.pageContainer.addClassName('theme'+this.themeNum);
+	if (typeof DR.themeButtDisplay != "undefined") {butt.sayDisplay('theme', this.themeNames[this.themeNum]);}
+	else if(typeof DR.themer != "undefined") {DR.themer.innerHTML=this.themeNames[this.themeNum];}
+	setPref(APP.id, 'themeNum', this.themeNum);
+}
+
+
+// !============================== COMMON SOUND ================================
+function mute(what){
+	if(what=='omni' || what=='all' || arguments.length==0){PREFS.member.mute=true;}
+	else if(what==APP.id || what=='thisApp'){PREFS[APP.id].mute=true;}
+	else {PREFS[what].mute=true;}
+	storePREFS();
+}
+
+function unmute(what){
+	if(what=='omni' || what=='all' || arguments.length==0){PREFS.member.mute=false;}
+	else if(what==APP.id || what=='thisApp'){PREFS[APP.id].mute=false;}
+	else{PREFS[what].mute=false;}
+	storePREFS();
+}
+
+function toggleMute(){
+	if(PREFS.member.mute){unmute('omni');}
+	else{mute('omni');}
+}
+
+// !============================================================================
+
+function toggleScreenLock(){
+	if(typeof PREFS.global.screenLock  === 'undefined') {PREFS.global.screenLock=true;}
+		if(PREFS.global.screenLock){
+			PREFS.global.screenLock=false;
+			document.ontouchmove = function(e){ return true; }
+		}
+		else{
+			PREFS.global.screenLock=true;
+			document.ontouchmove = function(e){ e.preventDefault();}
+		}
+}
+
+// PREVENTS STUPID BROWSERS FROM LEAVING WHEN DELETE IS PRESSED
+//on backspace down + optional callback
+function onBackspace(e, callback){
+    var key;
+    if(typeof e.keyIdentifier !== "undefined"){
+        key = e.keyIdentifier;
+    }else if(typeof e.keyCode !== "undefined"){
+        key = e.keyCode;
+    }
+    if (key === 'U+0008' || 
+        key === 'Backspace' || 
+        key === 8) {
+                    if(typeof callback === "function"){
+                callback();
+            }
+            return true;
+        }
+    return false;
+}
+
+//event listener
+var addEvt =  window.attachEvent||window.addEventListener;
+window.addEvt('keydown', function (e) {
+    switch(e.target.tagName.toLowerCase()){
+        case "input":
+        case "textarea":
+        case "div":
+        case "p":
+        break;
+        case "body":
+            onBackspace(e,function(){
+                e.preventDefault();
+            });
+        break;
+    }
+}, true);
+
+
+$O.preload =function(srcs) {
+	
+	try{
+    function loadImage(src) {
+        return new Promise(function(resolve, reject) {
+            var img = new Image();
+            img.onload = function() {
+                resolve(img);
+            };
+            img.onerror = img.onabort = function() {
+                reject(src);
+            };
+            img.src = src;
+        });
+    }
+    var promises = [];
+    for (var i = 0; i < srcs.length; i++) {
+        promises.push(loadImage(srcs[i]));
+    }
+    return Promise.all(promises);
+    }
+    catch(err){
+		var images=[];
+		for (var i = 0; i < arguments.length; i++) {
+			images[i] = new Image();
+			images[i].src = arguments[i];
+		}    
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$O.clearAllTimeouts = function(){
+	var id = window.setTimeout(function() {}, 0);
+	while (id--) {
+	    window.clearTimeout(id);
+	}
+}
+
+$O.addEv = function(dr,ev,funct,addremove){
+	// DR is the DOM REGISTRY STRING, EV IS EVENT TYPE (pointerdown), FUNCT is the action to be triggered, addremove is an optional string. IF 'remove' the listener is removed. If anything else or omitted, it adds the event.	
+	if(typeof DR[dr] !== 'undefined'){
+		if(DETECTO.ie8){
+			if(ev=='pointerdown') ev='onclick';
+			else if(ev=='pointerup') ev='onmouseup';
+			else if(ev=='pointerover') ev='onmouseover';
+			else if(ev=='pointerenter') ev='onmouseover';
+			else if(ev=='pointerleave') ev='onmouseout';
+			if(addremove == 'remove') DR[dr].detachEvent(ev, funct);
+			else DR[dr].attachEvent(ev, funct);
+		}
+		else{
+			if(addremove == 'remove') DR[dr].removeEventListener(ev, funct);
+			else DR[dr].addEventListener(ev, funct);
+		}
+	}
+}
+
+$O.shuffle = function(arr){
+	var i = arr.length;
+	if ( i == 0 ) return false;
+	while ( --i ) {
+		var j = Math.floor( Math.random() * ( i + 1 ) );
+		var tempi = arr[i];
+		var tempj = arr[j];
+		arr[i] = tempj;
+		arr[j] = tempi;
+	}
+}
+

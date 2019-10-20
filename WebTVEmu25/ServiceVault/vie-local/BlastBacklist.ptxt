@@ -1,0 +1,12 @@
+200 OK
+Content-length: %bytes
+Content-Type: text/html
+
+<display nosave nosend skipback clearback>
+<meta http-equiv="refresh" content="0; url=wtv-tricks:/tricks">
+<title>WebTV Tricks</title>
+<body bgcolor="#191919" text="#44cc55" link="36d5ff" vlink="36d5ff">
+<br>
+<br>
+<br>
+</body>

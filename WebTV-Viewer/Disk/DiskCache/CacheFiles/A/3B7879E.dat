@@ -1,0 +1,219 @@
+Location: http://games.net4tv.com/games/common/scripts/omni/_zoom.js
+Access-Level: Unrestricted
+Content-Type: application/javascript
+Content-Length: 5694
+Last-Modified: Fri, 07 Aug 2015 23:59:09 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:12 GMT
+
+function startZoom(){
+	
+	
+	if(PREFS.global.zoom && DETECTO.browser!='ie'){
+		var detectOrientationChange = "onorientationchange" in window,
+	    orientationEvent = detectOrientationChange ? "orientationchange" : "resize";
+		window.addEventListener(orientationEvent, function() {
+	   delayZoom(); 
+		}, false);
+	}
+	
+	else if(DETECTO.ie8 || DETECTO.ltie8){
+		// DON'T START ZOOM
+	}
+	
+	else if(DETECTO.browser=='ie'){
+		if(window.attachEvent) {
+	    window.attachEvent('onresize', function() {
+	       	doResize();
+		    updateAspect();
+	    });
+		}
+		else if(window.addEventListener) {
+	    window.addEventListener('resize', function() {
+	       	doResize();
+		    updateAspect();
+	    }, true);
+		}
+		else {
+	    //The browser does not support Javascript event binding
+		}
+	}
+	
+	if(DETECTO.platform=='ios') {detectoWebApp();}
+
+}
+
+function delayZoom(){
+	setTimeout(function(){
+		doResize();
+	    updateAspect();
+
+	}, 200);
+}
+
+function stopZoom(){
+	var detectOrientationChange = "onorientationchange" in window,
+	orientationEvent = detectOrientationChange ? "orientationchange" : "resize";
+	window.removeEventListener(orientationEvent, false);
+}
+
+function doResize(){
+	if(PREFS.global.zoom){
+		// CALCULATE THE ZOOM FACTOR
+		var scaletoH=window.innerHeight/CONSTRUCTO[PREFS.global.rez].pageContainerH;
+		var scaletoW=window.innerWidth/CONSTRUCTO[PREFS.global.rez].pageContainerW;
+		// FIGURE OUT HOW TO SCALE
+		if (typeof PREFS.global.scroll != 'undefined' && PREFS.global.scroll ) {//if scrolling is set and is true
+			APP.zoom=scaletoW;// ONLY scale to W
+			// if (scaletoW>1.2) APP.zoom=1.2;
+			 LOGGO('scrolling: '+PREFS.global.scroll);
+		}
+		else{		// else scrolling is false scale to lesser of W or H
+			if(scaletoH>scaletoW) APP.zoom=scaletoW;
+			else APP.zoom=scaletoH;
+		}// CLOSE ELSE
+		// SET LIMITS TO SCALING
+			if(PREFS.global.rez==360 && APP.zoom<.84)APP.zoom=.84;
+			else if(PREFS.global.rez==480 && APP.zoom<.64)APP.zoom=.64;
+			else if(PREFS.global.rez==720 && APP.zoom<.44)APP.zoom=.44;
+			else if(PREFS.global.rez==1080 && APP.zoom<.32)APP.zoom=.32;
+			if ((DETECTO.device=='pc' || DETECTO.device=='chromeBook') && PREFS.global.scroll){
+				if (APP.zoom>1)APP.zoom=1;
+			}
+			// DO THE ACTUAL SCALING
+			setZoom(APP.zoom);
+	}
+	zoomRealign();
+	if(PREFS.global.scroll){
+	}
+}
+
+
+function setZoom(scaleFactor){
+	if(PREFS.global.zoom){
+		APP.zoom=scaleFactor;
+		if( DETECTO.engine=='webkit') {
+			DR.appAreaGroup.style.zoom=APP.zoom;
+		}
+		else if(DETECTO.browser =='edge') {
+			//DR.appAreaGroup.style.zoom=APP.zoom;
+			//DR.appAreaGroup.style[DETECTO.css_selector_js+"Transform"]='scale('+APP.zoom+')';
+			//if(PREFS.global.scroll)DR.appAreaGroup.style[DETECTO.css_selector_js+"TransformOrigin"]='0 0';
+		}
+		else if(DETECTO.ie8) {
+			DR.appAreaGroup.style.zoom=1;
+		}
+		else{
+			DR.appAreaGroup.style[DETECTO.css_selector_js+"Transform"]='scale('+APP.zoom+')';
+			if(PREFS.global.scroll)DR.appAreaGroup.style[DETECTO.css_selector_js+"TransformOrigin"]='0 0';
+		}
+		updateAspect();
+	}
+}
+
+function zoomRealign(){
+	var winW=window.innerWidth;
+	var winH=window.innerHeight;
+	var aagW=DR.appAreaGroup.offsetWidth;
+	var aagH=DR.appAreaGroup.offsetHeight;
+	if(PREFS.global.scroll && (DETECTO.device=='pc' || DETECTO.device=='chromebook')){
+		var offsetLeft=(winW-aagW)/2;
+		//console.log(offsetLeft);
+		if (offsetLeft<0) offsetLeft=0;
+		DR.appAreaGroup.style.left=offsetLeft+'px';
+	}
+	
+}
+
+function updateAspect(){
+		var docEl = document.documentElement;
+		if(window.innerWidth>window.innerHeight){
+			DETECTO.orientation='landscape';
+			docEl.swapClassName('portrait','landscape');
+		}
+		else {
+			DETECTO.orientation='portrait';
+			docEl.swapClassName('landscape','portrait');
+			}
+
+		// DETECTING THE ROUGH ASPECT RATIO, ADDING IT TO DETECTO ARRAY, ADDING APSECT CLASS TO HTML TAG CLASS AND DATA
+		if(window.innerWidth/window.innerHeight>1.65){
+			DETECTO.roughAspect='16x9';
+			docEl.swapClassName('A4x3','A16x9');
+			}
+		else{
+			DETECTO.roughAspect='4x3';
+			docEl.swapClassName('A16x9','A4x3');
+			}
+
+// DETECTING PIXEL DENSITY / RETINA DISPLAY
+		if('devicePixelRatio' in window){
+			DETECTO.pixelRatio=window.devicePixelRatio;
+			if (DETECTO.pixelRatio> 1) {
+				docEl.addClassName('retina');
+			}
+			docEl.addClassName('piX'+DETECTO.pixelRatio);
+		}
+}
+
+
+function detectoWebApp(){
+	var docEl = document.documentElement;
+	
+	// DETECTING IOS HOMEPAGE APP
+		if(DETECTO.platform=='ios'){
+			if('standalone' in window.navigator){
+				detectstandalone = window.navigator.standalone,
+				detectsafari = /safari/.test( DETECTO.server_ua),
+				detectios = /iphone|ipod|ipad/.test( DETECTO.server_ua );
+				
+				if ( !detectstandalone && detectsafari ) {
+					//browser
+					DETECTO.iosApp=false;
+					docEl.addClassName('safariApp');
+					} 
+				else if ( detectstandalone && !detectsafari ) {
+					//standalone
+					DETECTO.iosApp=true;
+					DETECTO.standalone=true;
+					docEl.addClassName('iosApp');
+					docEl.addClassName('standalone');
+					} 
+				else if ( !detectstandalone && !detectsafari ) {
+					DETECTO.iosApp=true;
+					DETECTO.phoneGap=true;
+					docEl.addClassName('iosApp');
+					docEl.addClassName('phoneGap');
+				}
+			}
+			
+		}	
+}
+
+
+function updateRez(){setRez(PREFS.global.rez);
+}
+
+function setRez(rez){
+	var rezs=new Array(360, 480, 720, 1080);
+	for(var x=0; x < rezs.length; x++){
+		if(rezs[x]==rez) document.documentElement.addClassName('rez'+rezs[x]);
+		else document.documentElement.removeClassName('rez'+rezs[x]);
+	}
+}
+
+function turnOffZoom(){
+	setZoom(1);
+	PREFS.global.zoom=false;
+	//stopZoom();
+}
+
+function turnOnZoom(){
+	PREFS.global.zoom=true;
+	startZoom();
+	doResize();
+}
+
+function toggleZoom(){
+	if(PREFS.global.zoom) turnOffZoom();
+	else turnOnZoom();
+}

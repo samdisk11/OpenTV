@@ -1,0 +1,33 @@
+LOG FOR (192.168.1.98:1744) ON THU SEP 26 20:47:12 2019:
+GET vie-remote:/MSServ
+Referer: cache:wtv-1800:/preregister_eMac.2b.write
+wtv-show-time: 0
+wtv-show-time-record: 2 <wtv-1800:/preregister_eMac>
+wtv-request-type: primary
+wtv-incarnation: 7
+
+
+LOG FOR (169.254.252.138:23527) ON SAT SEP 28 19:30:03 2019:
+GET vie-remote:/MSServ
+Referer: cache:wtv-1800:/preregister_eMac.6c.write
+wtv-show-time-record: 2 <wtv-1800:/preregister_eMac>
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 2
+wtv-client-address: 0.0.0.0
+
+
+LOG FOR (169.254.252.138:29629) ON SAT SEP 28 20:38:42 2019:
+GET vie-remote:/MSServ
+Referer: cache:wtv-1800:/preregister_eMac.32.write
+wtv-show-time-record: 1 <wtv-1800:/preregister_eMac>
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 2
+wtv-client-address: 0.0.0.0
+
+

@@ -1,0 +1,183 @@
+Location: http://games.net4tv.com/games/home/_header.style.css
+Access-Level: Unrestricted
+Content-Type: application/www-form-urlencoded
+Content-Length: 3211
+Last-Modified: Thu, 24 Jul 2014 15:54:26 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:17 GMT
+
+/* header.style.css for HOME app */
+
+.strip {display: none; }
+
+.reg2 {
+	padding: 0 0 0 0;	
+	
+}
+.toplogo {
+	position: relative;	
+	float: left;
+}
+.games4tv-500 {
+	background-image:url(images/dress/logos/games4tvlogo-500.png);
+	width: 500px;
+	height: 136px;
+	background-repeat: no-repeat;
+}
+.games4tv-220 {
+	background-image:url(images/dress/logos/games4tvlogo-220.png);
+	width: 220px;
+	height: 55px;
+	background-repeat: no-repeat;
+}
+.games4tv-300 {
+	background-image:url(images/dress/logos/games4tvlogo-300-brite.png);
+	width: 300px;
+	height: 75px;
+	background-repeat: no-repeat;
+}
+.games4tv-400 {
+	background-image:url(images/dress/logos/games4tvlogo-400-brite.png);
+	width: 400px;
+	height: 100px;
+	background-repeat: no-repeat;
+/*	border: 2px white solid; */
+	padding: 0 0 0 0;	
+}
+.net4tv-250 {
+	background-image:url(images/dress/logos/net4tvlogo-250.png);
+	width: 250px;
+	height: 67px;
+	background-repeat: no-repeat;
+/*	border: 2px white solid; */
+	padding: 0 0 0 0;	
+}
+.net4tv-200 {
+	background-image:url(images/dress/logos/net4tvlogo-200.png);
+	width: 200px;
+	height: 53px;
+	background-repeat: no-repeat;
+/*	border: 2px white solid; */
+	padding: 0 0 0 0;	
+}
+.net4tv-180 {
+	background-image:url(images/dress/logos/net4tvlogo-180.png);
+	width: 180px;
+	height: 48px;
+	background-repeat: no-repeat;
+/*	border: 2px white solid; */
+	padding: 0 0 0 0;	
+}
+.memberblock {
+	position: relative;	
+	width:  70%;
+	float: left;
+	font-size: 1.2em;
+	display:table;
+/*	margin-bottom: -1%; */
+/*	left: 420px; */
+/* border: 2px white solid; */
+
+}
+.specialhead {
+	width:  70%;	
+	height: 1.2em;
+	display:block;
+	font-size: 1.6em;
+	color: yellow !important;	
+	text-align: center;		
+}
+#visitorhead {
+	position: relative;	
+	width:  100%;
+	float: left;
+	font-size: 1.3em;
+	display:table;
+	line-height: .5em;
+/* border: 2px white solid; 	*/
+	
+	
+}
+.login-long {
+	padding: 0 0 0 0;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 1.5em;
+ 	line-height: .5em; 
+ /* border: 2px yellow solid; */
+}
+
+.login-long label {
+	 /* display: block; */
+    overflow: hidden;
+    position: relative;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+.login-long input {
+	 /* display: block;
+    overflow: hidden; */
+    position: relative;
+    padding-left: 4px;
+    margin-right: 4px;
+    font-size: 1em;
+    width:  8em;
+}
+.login-long submit {
+	 /* display: block;
+    overflow: hidden; */
+    position: relative;
+    margin-left: 4px;
+    padding-right: 4px;
+    font-size: 1em;
+}
+
+.smhead {
+	font-size: 2.5em;	
+}
+.bighead {
+	font-size: 3em;	
+	text-transform:uppercase;	
+		
+}
+.loginset {
+    position: relative;	
+    vertical-align: middle; 
+    margin-top: 5px; 
+	float: left;	
+}
+#membertable {
+	height: 100%;
+	width: 100%;	
+	display:table-cell; 
+	text-align: center;
+	vertical-align:bottom;
+}
+#messageblock {
+	position:relative;
+	float: left;	
+	width: 280px;
+	text-align: center;	
+	margin-top: 1em;
+	cursor: pointer;
+	height: 2em;
+	border: 1px solid white;
+}
+#headside {
+	position:relative;
+	float: right;		
+	width: 9em;
+	height: 4em;
+}
+
+.shadowlogo {
+	-webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
+}
+.headsocial {
+	position: relative;
+	width: 9em;
+	height: 2em;
+	float: left;	
+} 

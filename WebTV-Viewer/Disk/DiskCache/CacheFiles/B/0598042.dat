@@ -1,0 +1,8 @@
+Location: http://games.net4tv.com/games/common/scripts/library/documentReady.min.js
+Access-Level: Unrestricted
+Content-Type: application/javascript
+Content-Length: 883
+Last-Modified: Fri, 31 Jul 2015 21:02:23 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:11 GMT
+
+(function(e){"use strict";var t=function(e){r=false;t.isReady=false;if(typeof e==="function"){i=e}u()},n=e.document,r=false,i=function(){},s=function(){if(n.addEventListener){n.removeEventListener("DOMContentLoaded",s,false)}else{n.detachEvent("onreadystatechange",s)}o()},o=function(){if(!t.isReady){if(!n.body){return setTimeout(o,1)}t.isReady=true;i()}},u=function(){var t=false;if(r){return}r=true;if(n.readyState!=="loading"){o()}if(n.addEventListener){n.addEventListener("DOMContentLoaded",s,false);e.addEventListener("load",s,false)}else if(n.attachEvent){n.attachEvent("onreadystatechange",s);e.attachEvent("onload",s);try{t=e.frameElement==null}catch(i){}if(n.documentElement.doScroll&&t){a()}}},a=function(){if(t.isReady){return}try{n.documentElement.doScroll("left")}catch(e){setTimeout(a,1);return}o()};t.isReady=false;e.$=t})(window);$(function(){APP["domReady"]=true})

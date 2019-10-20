@@ -1,0 +1,55 @@
+Location: http://games.net4tv.com/games/common/fonts/volkhov/stylesheet.css
+Access-Level: Unrestricted
+Content-Type: application/www-form-urlencoded
+Content-Length: 1805
+Last-Modified: Mon, 01 Jul 2013 23:38:38 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:15 GMT
+
+@font-face {
+    font-family: 'VolkhovRegular';
+    src: /*url('Volkhov-Regular-OTF-webfont.eot');
+    src: url('Volkhov-Regular-OTF-webfont.eot?#iefix') format('embedded-opentype'),*/
+         url('Volkhov-Regular-OTF-webfont.woff') format('woff')/*,
+         url('Volkhov-Regular-OTF-webfont.ttf') format('truetype'),
+         url('Volkhov-Regular-OTF-webfont.svg#VolkhovRegular') format('svg')*/;
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'VolkhovItalic';
+    src: /*url('Volkhov-Italic-OTF-webfont.eot');
+    src: url('Volkhov-Italic-OTF-webfont.eot?#iefix') format('embedded-opentype'),*/
+         url('Volkhov-Italic-OTF-webfont.woff') format('woff')/*,
+         url('Volkhov-Italic-OTF-webfont.ttf') format('truetype'),
+         url('Volkhov-Italic-OTF-webfont.svg#VolkhovItalic') format('svg')*/;
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'VolkhovBold';
+    src: /*url('Volkhov-Bold-OTF-webfont.eot');
+    src: url('Volkhov-Bold-OTF-webfont.eot?#iefix') format('embedded-opentype'),*/
+         url('Volkhov-Bold-OTF-webfont.woff') format('woff')/*,
+         url('Volkhov-Bold-OTF-webfont.ttf') format('truetype'),
+         url('Volkhov-Bold-OTF-webfont.svg#VolkhovBold') format('svg')*/;
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'VolkhovBoldItalic';
+    src: /*url('Volkhov-BoldItalic-OTF-webfont.eot');
+    src: url('Volkhov-BoldItalic-OTF-webfont.eot?#iefix') format('embedded-opentype'),*/
+         url('Volkhov-BoldItalic-OTF-webfont.woff') format('woff')/*,
+         url('Volkhov-BoldItalic-OTF-webfont.ttf') format('truetype'),
+         url('Volkhov-BoldItalic-OTF-webfont.svg#VolkhovBoldItalic') format('svg')*/;
+    font-weight: normal;
+    font-style: normal;
+
+}
+

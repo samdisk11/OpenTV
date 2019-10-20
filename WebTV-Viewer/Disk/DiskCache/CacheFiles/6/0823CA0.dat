@@ -1,0 +1,705 @@
+Location: http://games.net4tv.com/games/cinqo/_game.logic.cinqo.js
+Access-Level: Unrestricted
+Content-Type: application/javascript
+Content-Length: 16070
+Last-Modified: Fri, 31 Jul 2015 21:02:20 GMT
+Last-Validated: Sun, 20 Oct 2019 03:35:43 GMT
+
+function initApp(){
+	initVars();
+	initScoreboard();
+	for(var i=0; i<5; i++){
+
+		document.getElementById("pDr0c"+i).innerHTML="<div class='dot dnw north west'></div><div class='dot dmw mid west'></div><div class='dot dsw south west'></div><div class='dot dmc mid cent'></div><div class='dot dne north east'></div><div class='dot dme mid east'></div><div class='dot dse south east'></div>";
+	}
+	
+	
+	var c0=new Array(LOC.tally.ones, LOC.tally.twos, LOC.tally.threes, LOC.tally.fours, LOC.tally.fives, LOC.tally.sixes, LOC.tally.blank);
+	var c2=new Array(LOC.tally.kind3, LOC.tally.kind4, LOC.tally.smallstraight, LOC.tally.largestraight, LOC.tally.fullhouse, LOC.tally.chance, LOC.tally.cinqo);
+
+	
+	for(var i=0; i<7; i++){
+		DR['pMr'+i+'c0'].innerHTML="<p class='tallyLabel'>"+c0[i]+"</p>";
+		DR['pMr'+i+'c1'].innerHTML="<p class='tally'>--</p>";
+		DR['pMr'+i+'c2'].innerHTML="<p class='tallyLabel'>"+c2[i]+"</p>";
+		DR['pMr'+i+'c3'].innerHTML="<p class='tally'>--</p>";
+	}
+	
+	DR.pCr0c0.innerHTML="<p class='cupLabel'>"+"</p>";
+	sayCup(1);
+		//LEADER ANNCT
+	if (hasleaders && member !="") 	leaderIntro();
+}
+
+function initScoreboard(){
+	for(var n=0; n<4; n++){
+		var docFrag = document.createDocumentFragment();
+	  
+		var d1=document.createElement('div');
+		d1.id='playerName'+n;
+		d1.className='playerName P'+n;
+		d1.innerHTML="<p>"+LOC.playerName[n]+"</p>";
+		
+		var d2=document.createElement('div');
+		d2.id='scoreBg'+n;
+		d2.className='scoreBg P'+n;
+		
+		docFrag.appendChild(d1);
+		docFrag.appendChild(d2);
+	  
+		var beforethis=document.getElementById('P'+n+'lLabel');
+	  
+		document.getElementById('scoreboardP'+n).insertBefore(docFrag, beforethis);
+		document.getElementById('P'+n+'tCount').addClassName('keep');
+
+
+		document.getElementById('P'+n+'lCount').addClassName('P'+n);
+		document.getElementById('P'+n+'lLabel').addClassName('P'+n);
+
+		document.getElementById('P'+n+'rCount').addClassName('P'+n);
+		document.getElementById('P'+n+'rLabel').addClassName('P'+n);
+
+
+		document.getElementById('P'+n+'bCount').addClassName('P'+n);
+		document.getElementById('P'+n+'bLabel').addClassName('P'+n);
+
+
+		document.getElementById('P'+n+'tCount').addClassName('P'+n);
+		document.getElementById('P'+n+'tLabel').addClassName('P'+n);
+
+	}
+}
+
+function initVars(){
+	spinIVal=0;
+	spinCt=0;
+	currentPlayer=0; // TURN
+	numplayers=1; // NUMBER OF PEOPLE PLAYING
+	DR.pageContainer.addClassName('player'+currentPlayer);
+	DR.pageContainer.addClassName('numplayers'+numplayers);
+	
+	tscores=new Array(DR.pMr0c1, DR.pMr1c1, DR.pMr2c1, DR.pMr3c1, DR.pMr4c1, DR.pMr5c1, DR.pMr0c3, DR.pMr1c3, DR.pMr2c3, DR.pMr3c3, DR.pMr4c3, DR.pMr5c3, DR.pMr6c3);
+	scoretotals = new Array("l","r","b","t");
+	
+	/* ORIGINAL FE CODE */
+	total_score = 0;
+	memberhigh = 0;
+	membertoday = 0;	
+	checkarray = new Array(0,0,0,0,0,0);
+	rolled = false; //has the player whose turn it is rolled the dice?
+	turn = 0;
+	scored = false;
+	gameover = false;
+	rollcount = 3;
+	started = false;
+	rollnum = 0;
+	nicks = new Array("Blue","Green","Red","Purple");
+	player = new Array();
+	for (var i = 0; i < 4; i++) {
+		player[i] = new Object();
+		player[i]['nick'] = nicks[i];
+		player[i]['rolls'] = 0;
+		player[i]['scores'] = new Array(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1);
+		player[i]['totals'] = new Array(0,0,0,0);
+	}	
+	//BASIC CINQO OBJECTS AND FUNCTIONS
+	
+	dice=new Array(5);
+		for (var i = 0; i < 5; i++) {
+		dice[i] = new Die(i+1);
+		}
+	rolling = false; //have the dice already been clicked to roll?
+
+}
+
+function leaderIntro() {
+	sayTalky(LOC['talker'][0]+", "+member+".<br/>"+LOC['talker'][7],6000);
+	setTimeout("sayHigh()",4000);
+}
+function sayHigh() {
+	if (todays_high > 0) var talk = LOC['talker'][5]+addCommas(todays_high)+".";
+	else if (alltimehigh > 0) var talk = LOC['talker'][6]+addCommas(alltimehigh)+".";
+	else var talk = "";
+	if (todays_high || alltimehigh) sayTalky(talk, 3000);
+	else sayTalky("", 1);;
+}
+
+
+function newGame() {
+	started = false;
+	gameover = false;	
+	rollcount = 3;
+	//numplayers = 1;
+	for (var i = 0; i < 4; i++) {	
+		player[i]['scores'] = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];	
+		player[i]['totals'] = [0,0,0,0];
+		DR['P'+i+'tCount'].innerHTML='<p>--</p>';
+		sayScore('P'+i, 'l' ,0);
+		sayScore('P'+i, 'r' ,0);
+		sayScore('P'+i, 'b' ,0);
+		sayScore('P'+i, 't' ,0);
+	}
+	currentPlayer=0; turn = 0;
+	//var previousPlayers=numplayers;
+	//numplayers=1;
+	total_score = 0;
+	DR.pageContainer.className = "cf player0 numplayers"+numplayers;
+	//butt.rename('nPlayers',LOC.labels.players[numplayers]);	
+	resetDice();
+	sayTalky(LOC['talker'][3], 1000);
+	showscore();
+	sayCup(1);
+}
+
+
+
+function tally(what){
+	//console.log(what);
+
+	switch (what){
+		
+		case 0:// ONES
+		case 1: 
+			choose(0);
+		break;
+
+
+		case 4:// TWOS
+		case 5: 
+			choose(1);
+		break;
+
+
+		case 8:// THREES
+		case 9: 
+			choose(2);
+		break;
+
+
+		case 12:// FOURS
+		case 13: 
+			choose(3);
+		break;
+
+
+		case 16:// FIVES
+		case 17: 
+			choose(4);
+		break;
+
+		case 20:// SIXES
+		case 21: 
+			choose(5);
+		break;
+		
+		
+		case 2:// 3 OF A KIND
+		case 3: 
+			choose(6);
+		break;
+
+		
+		case 6:// 4 OF A KIND
+		case 7: 
+			choose(7);
+		break;
+
+
+		case 10:// LARGE STRAIGHT
+		case 11: 
+			choose(8);
+		break;
+
+
+		case 14:// SMALL STRAIGHT
+		case 15: 
+			choose(9);
+		break;
+
+
+		case 18:// FULL HOUSE
+		case 19: 
+			choose(10);
+		break;
+		
+
+		case 22:// CHANCE
+		case 23: 
+			choose(11);
+		break;
+
+
+		case 26:// CINQO
+		case 26: 
+			choose(12);
+		break;
+
+		case 24:// empty
+		case 25: 		
+		default:
+		break;
+	}
+	focusMe('lCr0c0');	
+}
+
+function sayTally(which, score){
+	// WHICH AND SCORE ARE BOTH INTEGERS
+	// PASS TO THIS WHICH ITEM FROM THE tscores array, and what the number should be.
+	tscores[which].children[0].innerHTML=score;
+}
+
+function cup(){
+	// CAUSED DICE TO ROLL
+	if (!rolling) {
+	if (!gameover) {
+	started = true;
+	if (rollcount > 0) {
+		rolling = true;
+   if(spinCt===0) spinIVal=setInterval(function(){scramble();}, 200);
+   rollcount--;
+   rolled = true;
+ 	}
+ 	if (rollcount <= 0) sayCup(0);
+	}
+	}
+}
+
+function scramble(){
+  setDie(false); 
+  spinCt++;
+  
+  if(spinCt>=6) {
+    window.clearInterval(spinIVal);
+    spinCt=0;
+    setDie(true); 
+    rolling = false;
+  }
+}
+
+function setDie(stopit){
+    for(var n=0; n<5; n++){
+    	if (dice[n].held == false) {
+          x=Math.floor((Math.random() * 6) + 1);
+       if(stopit) {
+       		DR['pDr0c'+n].className='DgP die n'+x;
+       		DR['ppDr0c'+n].swapClassName('rolling', 'norolling');
+       		dice[n].val = x;
+       	}
+       else {
+       		DR['pDr0c'+n].className='DgP die n'+x;
+	   		if(spinCt==0) DR['ppDr0c'+n].swapClassName('norolling','rolling');
+       }      
+    } 
+  }
+}
+
+
+function holdIt(n){
+	if (!rolling) {
+	if (dice[n].val > 0) {
+	if (dice[n].held) {
+		DR['pDr0c'+n].swapClassName('dieDim', 'dieBright');
+		DR['hold'+n].swapClassName('held', 'hold');
+		dice[n].held = false;
+	}
+	else {
+	DR['pDr0c'+n].swapClassName('dieBright', 'dieDim');
+		DR['hold'+n].swapClassName('hold', 'held');
+		dice[n].held = true;	
+	}
+	}
+	//else console.log("tried to hold a blank die");
+	}
+}
+
+
+
+function nextPlayer(){
+	var previousPlayer=currentPlayer;
+	if(currentPlayer<numplayers-1) {currentPlayer++;}
+	else currentPlayer=0;
+	DR.pageContainer.swapClassName(('player'+previousPlayer), ('player'+currentPlayer));
+	sayCup(1);
+};
+
+function numOfPlayers(){
+	if (!started) {
+	var previousPlayers=numplayers;
+	if(numplayers<4) {numplayers++;}
+	else numplayers=1;
+	DR.pageContainer.swapClassName(('numplayers'+previousPlayers), ('numplayers'+numplayers));
+	butt.rename('nPlayers',LOC.labels.players[numplayers]);
+	}
+	else sayTalky(LOC['talker'][4],2000);
+};
+
+
+
+
+function sayCup(num){
+	DR.pCr0c0.children[0].innerHTML=LOC.cup[num];
+}
+
+
+
+
+//CINQOFE.JS - Family Edition
+
+
+function choose(num) {
+
+	if (player[turn]['scores'][num] <0  && rolled && !scored && !gameover) {
+		scored = true;
+		sayCup(0);
+		if (num < 6)  {
+			var temp = scorenumber(num);	
+			player[turn]['scores'][num] = temp;
+			player[turn]['totals'][0] += temp;
+			sayTally(num, temp);
+			}
+		else if (num < 13) {
+			var temp = scorehand(num);
+			player[turn]['scores'][num] = temp;
+			player[turn]['totals'][1] += temp;
+		}
+		//document.images[num+"t"].src = done.src;
+		//addtotals();
+		showscore();
+	if (numplayers > 1) setTimeout("turnswitch()",2000);
+	else turnswitch();
+	}
+}
+
+
+//MULTI-Player Functions
+
+function turnswitch() {
+	//console.log("turnswitch");
+	if (numplayers > 1) {
+		nextPlayer();
+		if (turn < numplayers-1) turn++;
+		else turn = 0;		
+	}
+	
+	scored = false;
+	if (!gameover) {
+	//rolled = false;
+	reset_roll();
+	showscore();
+	//say(1);
+	}
+}
+
+
+function Die(num) {
+	//this.pic = die[num];
+	this.val = 0;
+	this.num = num-1;
+	this.place = "d" + (this.num);
+	this.held = false;
+	this.hold = "h"  + (this.num);
+	this.el = DR['pDr0c'+(this.num)];
+}
+
+
+
+function get_rand(seed) {
+	var temp = Math.floor((seed)*Math.random())+1;
+	return temp;
+}
+
+
+function checkgame() {
+	var temp = true;
+	for (var i = 0; i < 13; i++) {
+		if (player[numplayers-1]['scores'][i] < 0) {
+			temp = false;
+			break;
+		}
+	}
+	return temp;
+}
+
+function addtotals() {
+	var temp = 0;
+	for (var i = 0; i < 6; i++) { //upper scores
+		if (player[turn]['scores'][i] > -1) temp += player[turn]['scores'][i];
+	}
+	player[turn]['totals'][0] = temp;
+	var temp1 = 0;
+	for (var i = 6; i < 13; i++) { //lower scores
+		if (player[turn]['scores'][i] > -1) temp1 += player[turn]['scores'][i];
+	}
+	player[turn]['totals'][1] = temp1; 
+	//var temp2 = 0;
+	player[turn]['totals'][3] = player[turn]['totals'][0] + player[turn]['totals'][1] + player[turn]['totals'][2];
+	
+}
+
+
+function showscore() {
+//display scores
+	var counter = 0;
+	for (var i = 0; i < 13; i++) {
+	if (player[turn]['scores'][i] > -1) {
+	sayTally(i, player[turn]['scores'][i]);
+	counter++;
+	}
+	else sayTally(i, "--"); 
+	}
+	if (counter > 12 & !gameover) { //last move by this player
+		if (player[turn]['totals'][0] > 62) player[turn]['totals'][2] += 35;
+	}
+	addtotals();
+	for (var i = 0; i < 4; i++) {
+	sayScore('P'+turn,scoretotals[i],player[turn]['totals'][i]);
+	}
+}
+
+//SCORING FUNCTIONS
+
+function scorenumber(thenum) {
+	var counter = 0;
+		for (var i = 0; i < 5; i++) {
+			if (dice[i].val == (thenum+1)) counter++;
+		}
+	if (counter == 0) {
+		if ((player[turn]['scores'][12] > 0) && (check4(5)) && (player[turn]['scores'][(dice[0].val)-1] > -1)) {
+			counter = 5;
+			player[turn]['totals'][2] +=100;
+		}
+	}
+	else if (counter == 5 && player[turn]['scores'][12] > 0) player[turn]['totals'][2]+=100;
+	var temp = counter*(thenum+1);
+	//console.log("from scorenumber("+thenum+"), player["+turn+"]['totals'][2] = "+player[turn]['totals'][2]+" and returning "+temp);	
+	return temp;
+}
+
+function scorehand(thenum) {
+	var temp = 0;
+	if (thenum == 6) { //3 of a kind
+		if (check4(3)) {
+		temp = addDice();
+		if (player[turn]['scores'][12] > 0 && check4(5)) player[turn]['totals'][2] +=100;
+		}
+	}
+	else if (thenum == 7) { //4 of a kind
+		if (check4(4)) {
+		temp = addDice();
+		if (player[turn]['scores'][12] > 0 && check4(5)) player[turn]['totals'][2] +=100;
+		}
+	}
+	else if (thenum == 8) { //small straight
+		//if (checkstraight(0)) temp = 30; //lmb 8/23/14
+		if (checkstraight(0) || check4(5)) temp = 30;
+		//if (player[turn]['scores'][12] > 0 && check4(5)) player[turn]['totals'][2] +=100;		
+	}
+	else if (thenum == 9) { //lg straight
+		//if (checkstraight(1)) temp = 40; //lmb 8/23/14
+		if (checkstraight(1) || check4(5)) temp = 40;		
+		//if (player[turn]['scores'][12] > 0 && check4(5)) player[turn]['totals'][2] +=100;		
+	}
+	else if (thenum == 10) { //full house
+			if ((player[turn]['scores'][12] > 0) && (check4(5)) && (player[turn]['scores'][dice[1].val-1] > 0)) {
+			temp = 25;
+			player[turn]['totals'][2] +=100;
+		}
+		else if (fullhouse() || check4(5)) temp = 25;
+	}
+	else if (thenum == 11) {
+		temp = addDice();
+		if ((player[turn]['scores'][12] > 0) && check4(5)) player[turn]['totals'][2] +=100;
+		
+	}
+	else if (thenum == 12) {
+		if (check4(5)) temp = 50;
+	}
+	//console.log("from scorehand("+thenum+"), player["+turn+"]['totals'][2] = "+player[turn]['totals'][2]+" and returning "+temp);
+	return temp;
+}
+
+//SCORE CHECKING
+
+function addDice() {
+	var temp = 0;
+	for (var i = 0; i < 5; i++) {
+		temp += dice[i].val;
+	}
+	return temp;
+}
+
+
+function resetcheck() {
+	for (var i = 0; i < 6; i++) { checkarray[i] = 0;}
+}
+
+
+function check4(num) {
+	var temp = false;
+	for (var i = 0; i < 5; i++) {
+		checkarray[dice[i].val-1] ++;
+	}
+	
+	for (var j = 0; j < 6; j++) {
+		if (checkarray[j] >= num) {
+		temp = true;
+		break;
+		}
+	}
+	resetcheck();
+	return temp;
+}
+
+function checkstraight(num) {
+	var temp = false;
+	for (var i = 0; i < 5; i++) {
+		checkarray[dice[i].val-1] ++;
+	}
+	//alert(checkarray);
+	if (num == 0) {
+		if (checkarray[0] >= 1 && checkarray[1] >= 1 && checkarray[2] >= 1 && checkarray[3] >= 1) temp = true; 
+		else if (checkarray[1] >= 1 && checkarray[2] >= 1 && checkarray[3] >= 1 && checkarray[4] >= 1) temp = true; 
+		else if (checkarray[2] >= 1 && checkarray[3] >= 1 && checkarray[4] >= 1 && checkarray[5] >= 1) temp = true; 
+
+
+	}	
+	if (num == 1) {
+		if (checkarray[1] == 1 && checkarray[2] == 1 && checkarray[3] == 1 && checkarray[4] == 1 && checkarray[5] == 1) temp = true; 
+		else if (checkarray[0] == 1 && checkarray[1] == 1 && checkarray[2] == 1 && checkarray[3] == 1 && checkarray[4] == 1) temp = true; 
+
+	}
+	resetcheck();
+	return temp;
+}
+
+function fullhouse() {
+	var temp = true;
+	for (var i = 0; i < 5; i++) {
+		checkarray[dice[i].val-1] ++;
+	}
+	for (var j = 0; j < 6; j++) {
+		if (checkarray[j] == 1 || checkarray[j] == 4) {
+			temp = false;
+			break;
+		}
+	}
+	resetcheck();
+	return temp;
+}
+
+
+//DICE FUNCTIONS
+function reset_roll() {
+	gameover = checkgame();
+	if (!gameover) {
+		resetDice();
+		rollcount=3;
+		rolled = false;
+		sayCup(1);
+	}
+	else {
+		endgame();		
+	}
+}
+
+function endgame() {
+	if (numplayers > 1) {
+			//game over functions go here
+			var temp = -1;
+			var winner;
+			var tie = false;
+			for (var i = 0; i < numplayers; i++) {
+				if (player[i]['totals'][3] > temp) {
+				temp = player[i]['totals'][3];
+				winner = i;
+				tie = false;
+				}
+				else if (player[i]['totals'][3] == temp) {
+				tie = true;
+				}
+			}
+			if (tie) {
+				var tietalk = "";
+				for (var j = 0; j < numplayers; j++) {
+					if (player[i]['totals'][3] == temp) {
+						if (tietalk != "") tietalk+= "& "+nicks[i]+LOC['talker'][8];
+						else tietalk+=nicks[i]+LOC['talker'][8];
+					}
+				}
+				tietalk += LOC['talker'][9];
+				sayTalky(tietalk, 0);
+				//console.log("Game over! Tie game!");
+				//talker.innerHTML = "Game over! Tie game!";
+			}
+			else {
+				//not a tie
+				var talk = nicks[winner]+LOC['talker'][2];
+				sayTalky(talk, 0);
+			}
+		}
+		else {
+			//only one player
+			if (hasleaders && member !="" && player[0]['totals'][3] > LEADERS['high_score']) {
+				total_score = player[0]['totals'][3];
+				highscore = player[0]['totals'][3];
+				//console.log("calling leaders ...");
+				goResults();
+			}
+  		else sayTalky(LOC['talker'][1], 0);		
+		}	
+}
+
+
+function say(num) {
+	if (num == 0) talker.innerHTML = "";
+	else if (num == 1) {
+		if (numplayers > 1) talker.innerHTML = "Player " + (turn+1) + "'s turn. Roll the dice!";
+		else  talker.innerHTML = "Roll the dice!";
+		}
+	else if (num == 2) {
+		talker.innerHTML = "Roll again, or score your hand.";
+	}
+	else if (num == 3) talker.innerHTML = "Score your hand.";
+}
+
+function resetDice() {
+    for(var n=0; n<5; n++){
+      dice[n].val = 0;
+      dice[n].held = false;
+      DR['pDr0c'+n].className='DgP die n0';
+			DR['hold'+n].className='hold';  
+    } 
+  }	
+	
+function clearScoreDisplay() {
+	for (var i = 0; i < 13; i++) {
+		sayTally(i, "--"); 
+		}
+	for (var j = 0; j < 4; j++) {
+		for (var k = 0; k < 4; k++) {
+		sayScore('P'+j,scoretotals[k],0);
+		}
+	}
+}
+
+function goResults(){
+	if (highscore >= LEADERS['alltimehigh']) {
+		leaders.memberHighScores();
+	LEADERS['alltimehigh'] = highscore;
+	}
+	leaders.clear();
+	leaders.say(LOC['leaders']['offerleader'][0]+addCommas(total_score)+LOC['leaders']['offerleader'][1]);
+	leaders.offer();
+	LEADERS['high_score'] = highscore;
+}
+
+/* DEBUGGING FUNCTIONS */
+
+function loadCinqo(num) {
+	for (var i = 0; i < 5; i++) {
+		dice[i].val = num;
+		DR['pDr0c'+i].className='DgP die n'+num;
+	}
+}
+
+

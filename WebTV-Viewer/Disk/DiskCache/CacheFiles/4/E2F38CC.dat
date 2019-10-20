@@ -1,0 +1,187 @@
+Location: http://games.net4tv.com/games/common/fonts/pt/stylesheet.css
+Access-Level: Unrestricted
+Content-Type: application/www-form-urlencoded
+Content-Length: 7937
+Last-Modified: Thu, 11 Dec 2014 06:08:19 GMT
+Last-Validated: Sun, 20 Oct 2019 03:35:42 GMT
+
+@font-face {
+  font-family: 'PT Sans Caption Bold';
+  src: url('PT_Sans-Caption-Web-Bold.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Caption-Web-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Caption-Web-Bold.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Caption-Web-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Caption-Web-Bold.svg#29cad5673275be89ce4ffe60ff4bb911') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'PT Sans Caption';
+  src: url('PT_Sans-Caption-Web-Regular.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Caption-Web-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Caption-Web-Regular.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Caption-Web-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Caption-Web-Regular.svg#2b5fb73c587d9a3c1836201b0f3fa4b4') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Sans Narrow Bold';
+  src: url('PT_Sans-Narrow-Web-Bold.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Narrow-Web-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Narrow-Web-Bold.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Narrow-Web-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Narrow-Web-Bold.svg#462fb4dc1aa31889c2dc9982c86dc445') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'PT Sans Narrow';
+  src: url('PT_Sans-Narrow-Web-Regular.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Narrow-Web-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Narrow-Web-Regular.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Narrow-Web-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Narrow-Web-Regular.svg#7f84abca9b30d98b09ca6583ba6ce506') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Sans Bold';
+  src: url('PT_Sans-Web-Bold.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Web-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Web-Bold.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Web-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Web-Bold.svg#8e2408bd894c6a9f4e6f9cb12ad976a5') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'PT Sans Bold Italic';
+  src: url('PT_Sans-Web-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Web-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Web-BoldItalic.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Web-BoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Web-BoldItalic.svg#bd909b7a75300038b8390bbb4b844cf8') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'PT Sans Italic';
+  src: url('PT_Sans-Web-Italic.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Web-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Web-Italic.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Web-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Web-Italic.svg#98aeb0e47e79ed97390397e001f24185') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  src: url('PT_Sans-Web-Regular.eot'); /* IE9 Compat Modes */
+  src: url('PT_Sans-Web-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Sans-Web-Regular.woff') format('woff'), /* Modern Browsers */
+       url('PT_Sans-Web-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Sans-Web-Regular.svg#f39585f1b656e5f9297b79e526233403') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Serif Caption Italic';
+  src: url('PT_Serif-Caption-Web-Italic.eot'); /* IE9 Compat Modes */
+  src: url('PT_Serif-Caption-Web-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Serif-Caption-Web-Italic.woff') format('woff'), /* Modern Browsers */
+       url('PT_Serif-Caption-Web-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Serif-Caption-Web-Italic.svg#49d5999807021d22abb28927fed23c4d') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Serif Caption';
+  src: url('PT_Serif-Caption-Web-Regular.eot'); /* IE9 Compat Modes */
+  src: url('PT_Serif-Caption-Web-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Serif-Caption-Web-Regular.woff') format('woff'), /* Modern Browsers */
+       url('PT_Serif-Caption-Web-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Serif-Caption-Web-Regular.svg#5217a7807562a471f38ef1a932d13e88') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Serif Bold';
+  src: url('PT_Serif-Web-Bold.eot'); /* IE9 Compat Modes */
+  src: url('PT_Serif-Web-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Serif-Web-Bold.woff') format('woff'), /* Modern Browsers */
+       url('PT_Serif-Web-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Serif-Web-Bold.svg#b584fb1428c84c3baab741c44b54680a') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'PT Serif Bold Italic';
+  src: url('PT_Serif-Web-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('PT_Serif-Web-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Serif-Web-BoldItalic.woff') format('woff'), /* Modern Browsers */
+       url('PT_Serif-Web-BoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Serif-Web-BoldItalic.svg#fcd73ff260d2cd9dae722764b38b2880') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'PT Serif Italic';
+  src: url('PT_Serif-Web-Italic.eot'); /* IE9 Compat Modes */
+  src: url('PT_Serif-Web-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Serif-Web-Italic.woff') format('woff'), /* Modern Browsers */
+       url('PT_Serif-Web-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Serif-Web-Italic.svg#2fd64237989483653ec1dc7069fc56fe') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Serif';
+  src: url('PT_Serif-Web-Regular.eot'); /* IE9 Compat Modes */
+  src: url('PT_Serif-Web-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PT_Serif-Web-Regular.woff') format('woff'), /* Modern Browsers */
+       url('PT_Serif-Web-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PT_Serif-Web-Regular.svg#2eadc12db366f128d4c29fb370be9bc1') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'PT Mono';
+  src: url('PTM55FT.eot'); /* IE9 Compat Modes */
+  src: url('PTM55FT.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PTM55FT.woff') format('woff'), /* Modern Browsers */
+       url('PTM55FT.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PTM55FT.svg#6c773c622eeb2cb61999f5d03d3acfb9') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

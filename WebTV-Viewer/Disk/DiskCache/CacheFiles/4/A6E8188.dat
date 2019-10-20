@@ -1,0 +1,49 @@
+Location: http://games.net4tv.com/games/common/scripts/omni/_prefs.js
+Access-Level: Unrestricted
+Content-Type: application/javascript
+Content-Length: 1364
+Last-Modified: Fri, 31 Jul 2015 21:02:23 GMT
+Last-Validated: Sun, 20 Oct 2019 03:33:19 GMT
+
+function setPref(scope, prefName, value){
+	try {if(scope=='all') scope='member';
+		else if(scope=='thisApp' || scope=='app') scope=APP.id;
+		PREFS[scope][prefName]=value;
+		storePREFS();}
+	catch (error){if(PREFS.global.devMode)console.log('setPref failed.');}
+}
+
+function unsetPref(scope, prefName){	
+	if(scope=='all') scope='member';
+	else if(scope=='thisApp' || scope=='app') scope=APP.id;
+	delete PREFS[scope][prefName];
+	storePREFS();
+}
+
+function getPref(scope, prefName){	
+	if(scope=='all') scope='member';
+	else if(scope=='thisApp' || scope=='app') scope=APP.id;
+	return PREFS[scope][prefName];
+}
+
+function storePREFS(){
+	try{localStorage.setItem('prefs_'+APP.id, JSON.stringify(PREFS[[APP.id]]));
+		localStorage.setItem('prefs_member', JSON.stringify(PREFS.member));}
+	catch (e){if(PREFS.global.devMode)console.log('App and/or Member prefsStore failed.');}
+}
+
+function restorePREFS(){
+	try{PREFS[APP.id]=mergeObjs(PREFS[APP.id], JSON.parse(localStorage.getItem('prefs_'+APP.id)));	
+		PREFS.member=mergeObjs(PREFS.member, JSON.parse(localStorage.getItem('prefs_member')));	
+		storePREFS();}
+	catch (e){if(PREFS.global.devMode)console.log('App and/or Member prefsRestore failed.');}	
+}
+
+// Merge second object into first
+function mergeObjs(obj1, obj2){
+  for (var key in obj2){
+    if (obj2.hasOwnProperty(key))
+      obj1[key] = obj2[key]
+  }
+  return obj1
+}
