@@ -1,0 +1,11 @@
+LOG FOR (25.7.197.106:51525) ON SUN OCT 20 11:03:12 2019:
+GET wtv-tricks://
+wtv-show-time-record: 146 <wtv-home:/home>; 1 <cache:wtv-home:/home.f.write>; 22 <wtv-home:/home>
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 4
+
+
