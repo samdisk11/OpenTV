@@ -1,0 +1,42 @@
+300 OK
+wtv-ticket: f/RhiuQ2cwMzsr/gwocXE0Uiw5zF/idAYpVN45COHmqrIRL28flc2nbFfi99z81D+ZLg+hb5Ptm/EUu7mFw79l8oLhBZvGE632V+BEdcrJDL9neqDkEC1EGR+7nklDN7P7QSX+X9OyVMnuJkZzi7a3mVB5rtrN6eJl8Baox5no69wbJSDevTbhaty/91SZ8bkiYN+AokuhKUGlKfXAfGc6v45KX0olcZdA+C4aRl359GhMP2z9Dv/+JMN3yrQt7ezYRUB9fPXzXuSKCNh62yI37oBc0ZI03ns9RYUNrs4CV0ZUICVwHEp2v0ltoQXeCjKYeSw/53BNUFk4H/EUlvrwusNM9x5QfdEJU+L9pAaIxTyM19smnYfuGOB4lo6GSy5ATmW5ogI6rduRGtPkpX7VmtgKsi6Qbc+5rXAwmrifTlrYF+K9IEYpLWuTNT+JrD/8ZI1E3+bJ1+NS9Zt1+q1HJpSeXztRo67wLeaAtESy20PicdFXAog/ajwDwlH4rgcIcM0sI6h/uiljZYc47Gl5870/pw8q6HIZY+C0ky8yvSzsoJXeJCeO1OG8cAUiebTebK6Id9Obip02Cym6lv76ytOsmap7G9pEOFLegxSKrMwE94Vn9LJi9qmrudv+mcOW8/imaVzqYyztzqw/Ind/mopx2YrHWT
+wtv-service: reset
+wtv-language-header: US-en,US
+wtv-service: name=wtv-1800 host=%lip port=%lport
+wtv-service: name=wtv-head-waiter host=209.240.194.47 port=1601
+wtv-service: name=news host=209.240.194.47 port=1605
+wtv-service: name=wtv-news host=209.240.194.47 port=1605
+wtv-service: name=wtv-forum host=209.240.194.47 port=1605
+wtv-service: name=wtv-register host=209.240.194.47 port=1607
+wtv-service: name=wtv-mail host=209.240.194.47 port=1608
+wtv-service: name=mailto host=209.240.194.47 port=1608
+wtv-service: name=wtv-favorite host=209.240.194.47 port=1611
+wtv-service: name=wtv-setup host=209.240.194.47 port=1613
+wtv-service: name=wtv-flashrom host=209.240.194.47 port=1618
+wtv-service: name=wtv-explore host=209.240.194.47 port=1625
+wtv-service: name=wtv-explore2 host=209.240.194.47 port=1625
+wtv-service: name=wtv-chat host=209.240.194.47 port=1630
+wtv-service: name=wtvchat host=209.240.194.47 port=1630
+wtv-service: name=wtv-disk host=209.240.194.47 port=1635
+wtv-service: name=wtv-tutorial host=209.240.194.47 port=1636
+wtv-service: name=wtv-music host=209.240.194.47 port=1656
+wtv-service: name=wtv-tricks host=209.240.194.47 port=1602
+wtv-service: name=wtv-log host=209.240.194.47 port=1609
+wtv-service: name=wtv-guide host=209.240.194.47 port=1621
+wtv-service: name=wtv-intro host=209.240.194.47 port=1621
+wtv-service: name=wtv-content host=209.240.194.47 port=1629
+wtv-service: name=wtv-smartcard host=209.240.194.47port=1632
+wtv-service: name=wtv-center host=209.240.194.47 port=1639
+wtv-service: name=wtv-home host=209.240.194.47 port=1612
+wtv-service: name=wtv-spot host=209.240.194.47 port=1642
+wtv-service: name=wtv-passport host=209.240.194.47 port=1654
+wtv-service: name=wtv-notices host=209.240.194.47 port=1621
+wtv-service: name=wtv-notify host=209.240.194.47 port=1621
+wtv-service: name=wtv-star host=209.240.194.47 port=1603
+wtv-service: name=wtv-* host=209.240.194.47 port=1603
+wtv-service: name=wtv-author host=209.240.194.47 port=1643
+wtv-home-url: wtv-home:/home
+Content-length: %bytes
+Content-type: text/html
+Location: wtv-home:/home
+

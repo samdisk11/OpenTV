@@ -1,6 +1,103 @@
-LOG FOR (25.7.197.106:51525) ON SUN OCT 20 11:03:12 2019:
-GET wtv-tricks://
-wtv-show-time-record: 146 <wtv-home:/home>; 1 <cache:wtv-home:/home.f.write>; 22 <wtv-home:/home>
+LOG FOR (25.7.197.106:51963) ON SUN OCT 20 11:09:35 2019:
+GET wtv-tricks:/tricksside.jpg
+Referer: wtv-tricks:/info
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 4
+
+
+LOG FOR (25.7.197.106:52187) ON SUN OCT 20 11:15:08 2019:
+GET wtv-tricks:/tricksside.jpg
+Referer: wtv-tricks:/info
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 7
+wtv-client-address: 0.0.0.0
+
+
+LOG FOR (25.7.197.106:52187) ON SUN OCT 20 11:15:09 2019:
+GET wtv-tricks:/tricksside.jpg
+Referer: wtv-tricks:/info
+wtv-show-time-record: 2 <wtv-tricks:/info>; 1 <wtv-tricks:/tricks>
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 7
+wtv-client-address: 0.0.0.0
+
+
+LOG FOR (25.7.197.106:52187) ON SUN OCT 20 11:15:38 2019:
+GET wtv-tricks:/UnregisterMeOniichan?confirmation=UnregisterBox
+Referer: wtv-tricks:/deregisterme
+wtv-show-time: 32
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 7
+wtv-client-address: 0.0.0.0
+
+
+LOG FOR (25.7.197.106:5791) ON SUN OCT 20 14:50:48 2019:
+GET wtv-tricks:/switch-services
+wtv-show-time-record: 12 <wtv-1800:/preregister_eMac>; 1 <wtv-1800:/preregister_eMac>; 1 <wtv-1800:/preregister_eMac>; 1 <wtv-1800:/preregister_eMac>; 1 <wtv-1800:/preregister_eMac>; 2 <wtv-1800:/preregister_eMac>; 1 <wtv-1800:/preregister_eMac>; 31 <wtv-1800:/preregister_eMac>; 13 <wtv-1800:/preregister_eMac>; 39 <wtv-1800:/preregister_eMac>; 120 <wtv-1800:/preregister_eMac>; 109 <wtv-1800:/preregister_eMac>
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 12
+
+
+LOG FOR (25.7.197.106:6924) ON SUN OCT 20 15:05:23 2019:
+GET wtv-tricks:/hacker
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 4
+
+
+LOG FOR (25.7.197.106:7203) ON SUN OCT 20 15:08:11 2019:
+GET wtv-tricks:/hacker
+wtv-show-time-record: 3 <file://rom/HTMLs/SonyLogo.html>; 7 <file://rom/HTMLs/Connecting.html>
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 8
+wtv-client-address: 0.0.0.0
+
+
+LOG FOR (25.7.197.106:7203) ON SUN OCT 20 15:08:19 2019:
+GET wtv-tricks:/hacker/get-flash-now
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 8
+wtv-client-address: 0.0.0.0
+
+
+LOG FOR (25.7.197.106:7440) ON SUN OCT 20 15:15:16 2019:
+GET wtv-tricks:/hacker
+wtv-show-time-record: 82 <wtv-home:/home>
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 10
+
+
+LOG FOR (25.7.197.106:31491) ON MON OCT 21 09:20:43 2019:
+GET wtv-tricks:/servicevaultsutff/register
 pragma: no-cache
 wtv-request-type: primary
 wtv-system-cpuspeed: 166164662

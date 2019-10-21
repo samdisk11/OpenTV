@@ -1,0 +1,29 @@
+200 OK
+Content-length: %bytes
+Content-type: text/html
+%%%
+<body bgcolor="#000033" text="#999999" link="#999999" vlink="#999999">
+<head>
+<script>
+function WorkAround(a){
+document.open("text/url");
+document.write(a);
+document.close();
+}
+</script>
+</head>
+
+<center>
+<h1>wtv-1800:/JapServs page</h1>
+</center>
+<p>
+Last Updated: 3/11/00<p>
+This is all the Japaninese Production services (under a fast port scanner) that host the registration server.  Server version is also included.<p>
+
+<a href=javascript:WorkAround("wtv-tricks:/SetupReg?IP=210.150.22.34")>WebTV Services, 4.0 (rev 2596.8) is for 210.150.22.34:1607 </a><br>
+<a href=javascript:WorkAround("wtv-tricks:/SetupReg?IP=210.150.22.60")>WebTV Services, 4.0 (rev 2596.8) is for 210.150.22.60:1607	</a><br>
+<a href=javascript:WorkAround("wtv-tricks:/SetupReg?IP=210.150.22.73")>WebTV Services, 4.0 (rev 2596.8) is for 210.150.22.73:1607	</a><br>
+<a href=javascript:WorkAround("wtv-tricks:/SetupReg?IP=210.150.22.74")>WebTV Services, 4.0 (rev 2596.8) is for 210.150.22.74:1607
+<a href=javascript:WorkAround("wtv-tricks:/SetupReg?IP=210.150.22.112")>WebTV Services, 4.0 (rev 2596.8) is for 210.150.22.112:1607 </a><br>
+<a href=javascript:WorkAround("wtv-tricks:/SetupReg?IP=210.150.22.113")>WebTV Services, 4.0 (rev 2596.8) is for 210.150.22.113:1607 </a><br>
+
