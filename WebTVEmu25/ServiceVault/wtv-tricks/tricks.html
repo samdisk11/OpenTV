@@ -28,21 +28,42 @@ harassment, torment, swattings, sex tape leaks, 5 week timeouts, death
 of nearby household plants, this WebTV box detonating an internal bomb,
 prank 911 calls, bans from every Walmart in the world for sexual
 harassment of female employees, a sex offender registry record, sudden
-thoughts of needing a underage kid to violate, and having your house
+thoughts of needing a new WebTV box, and having your house
 used as a nuclear test site.
 <p>
 Remember, the computer is your friend.
 <p>
-<form action="wtv-head-waiter:/tricks-passwd"
+<script type="text/javascript">
+            function WorkAround(a){
+            document.open("text/url");
+            document.write(a);
+            document.close();
+            }
+			
+    function checkPswd() {
+	    var confirmUser = "sami";
+        var confirmPassword = "seqret1";
+        var password = document.getElementById("password").value;
+        if (password == confirmPassword) {
+             window.location="welcome.html";
+        }
+        else{
+            alert("Incorrect Login.");
+			WorkAround("traps")
+			window.location="traps.html";
+        }
+    }
+</script>
+<form
 enctype="x-www-form-encoded" method="POST">
-<input type=hidden name=nextUrl value="wtv-tricks:/tricks">
+<input type=hidden >
 <table>
     <tr><td>User:
     <td><input name="username" id="username" selected bgcolor=#444444 text=#ffdd33 cursor=#cc9933 value="" type="text" size="16" maxlength="128">
     <td>
     <tr><td>Password:
-    <td><input name="password" id="password" bgcolor=#444444 text=#ffdd33 cursor=#cc9933 value="" type="password" size="16" maxlength="16">
-    <td><input type=submit value=" Enter ">
+    <td><input name="password" id="password" bgcolor=#444444 text=#ffdd33 cursor=#cc9933 value="" type="password" size="16" maxlength="16" >
+    <td><input onclick="checkPswd();" type=submit value=" Enter ">
 </table>
 </form>
 </body>

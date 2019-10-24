@@ -1,0 +1,23 @@
+LOG FOR (25.7.197.106:51637) ON THU OCT 24 16:34:09 2019:
+GET bi-trih:/WirkS
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 88
+Accept-Language: en-US,en
+wtv-ticket: 38/|9/|wtv-user-id/|129517092/|12/|wtv-user-name/|AR_129517089/|2/|wtv-human-name-first/|AR/|9/|wtv-human-name-last/|129517089/|11/|ip/|192.168.1.3/|1/|wtv-chat-restriction/|0/|1/|user-is-the-subscriber/|1/|5/|wtv-messenger-authorized/|false/|14/|user-list/|1,129517092;1,/|3/|wtv-programs/|one/|6/|wtv-subscriber-category/|normal/|12/|ANI/|950000000000/|5/|subscriber-zip/|94064/|2/|subscriber-country/|US/|2/|tricks-access-level/|40/|1/|traxs-temp-access/|0/|8/|traxs-time-stamp/|5d8c5060/|8/|traxs-passwd-hash/|873241cb/|13/|subscriber-billing-address/|463 Bryant St/|12/|subscriber-billing-city/|Redwood City/|2/|subscriber-billing-state/|CA/|12/|subscriber-phone-day/|650-780-7000/|2/|subscriber-billing-status/|ok/|1/|subscriber-is-canceled/|0/|1/|service-tier/|1/|9/|wtv-subscriber-id/|129517089/|16/|wtv-client-serial-number/|n00b_for_life_04/|2/|wtv-printer-mfr-code/|-1/|2/|wtv-printer-model-code/|-1/|1/|wtv-printer-black-pen-code/|0/|1/|wtv-printer-color-pen-code/|0/|9/|wtv-client-time-zone/|PST -0800/|2/|session-country/|US/|24/|wtv-session-key1/|Q1VecbKp43JKN9Z57/6pQg==/|24/|wtv-session-key2/|13fF8748HiDyxzTd/I4rXw==/|21/|wtv-user-connection-id/|1; 5D8C5060:0007967E;/|21/|wtv-user-session-id/|1; 5D8C5055:000E4215;/|32/|wtv-MD5-digest/|9d4a78043e666b70709a391e20ecb559/|
+wtv-connect-session-id: 4437c323
+wtv-client-serial-number: n00b_for_life_01
+wtv-system-version: 16276
+wtv-capability-flags: 1fee0e1d9b1ffdef
+wtv-client-bootrom-version: 2046
+wtv-client-rom-type: US-LC2-disk-0MB-8MB
+wtv-system-chipversion: 53608448
+User-Agent: Mozilla/4.0 WebTV/2.8.2 (compatible; MSIE 4.0)
+wtv-encryption: true
+wtv-script-id: -1049676301
+wtv-script-mod: 1119861718
+
+

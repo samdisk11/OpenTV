@@ -1,0 +1,10 @@
+300 OK
+wtv-service: reset
+wtv-service: name=wtv-head-waiter host=%lip port=%lport flags=0x04
+wtv-service: name=wtv-1800 host=%lip port=%lport flags=0x04
+wtv-service: name=wtv-flashrom host=%lip port=%lport flags=0x04
+wtv-service: name=wtv-home host=%lip port=%lport flags=0x04
+wtv-relogin-url: wtv-head-waiter:/login
+Location: client:ReLogin
+
+
