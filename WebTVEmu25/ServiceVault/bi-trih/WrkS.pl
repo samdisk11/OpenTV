@@ -57,7 +57,7 @@ location.href="wtv-1800:/WrkS?URL="+escape(A);
 
 function preloadURL(A) {
 document.clientArea.document.open("text/html");
-document.clientArea.document.write("<body bgcolor=#003332 text=#999999><p>Pleloading '"+A+"'<p><link href='"+A+"' rel=next>");
+document.clientArea.document.write("<body bgcolor=#000033 text=#999999><p>Pleloading '"+A+"'<p><link href='"+A+"' rel=next>");
 document.clientArea.document.close();
 
 }
@@ -65,7 +65,7 @@ document.clientArea.document.close();
 
 function sourceConfirm(A) {
 if(SourceAllow && (SourceAllow != "false")){
-document.clientArea.document.write("<body bgcolor='#003332' text='#999999'>Source for '"+A+"':<p><wtvchattranscript src="+A+" type='text/plain'>")
+document.clientArea.document.write("<body bgcolor='#000033' text='#999999'>Source for '"+A+"':<p><wtvchattranscript src="+A+" type='text/plain'>")
 }else{
 location.href="wtv-1800:/SourceMe?URL="+escape(A);
 
@@ -74,7 +74,7 @@ location.href="wtv-1800:/SourceMe?URL="+escape(A);
 
 function embedURL(A) {
 document.clientArea.document.open("text/html");
-document.clientArea.document.write("<hr noshade><form>Javascript: clientArea.<input bgcolor='#003332' text='#999999' border=0 nohighlight onChange=txt.value=eval('top.document.clientArea.document.HEY.'+this.value) width='60%'><br>Return Code: <textarea growable name='txt' cols='50%' bgcolor='#003332' text='#999999' border=0 nohighlight></textarea></form><hr noshade><body bgcolor='#003332' text='#999999'><p><wtvchattranscript src='"+A+"' name=HEY>");
+document.clientArea.document.write("<hr noshade><form>Javascript: clientArea.<input bgcolor='#000033' text='#999999' border=0 nohighlight onChange=txt.value=eval('top.document.clientArea.document.HEY.'+this.value) width='60%'><br>Return Code: <textarea growable name='txt' cols='50%' bgcolor='#000033' text='#999999' border=0 nohighlight></textarea></form><hr noshade><body bgcolor='#000033' text='#999999'><p><wtvchattranscript src='"+A+"' name=HEY>");
 document.clientArea.document.close();
 
 
@@ -115,7 +115,7 @@ TokenURL="wtv-center:/ChangeCity?redirect="
 }
 
 document.clientArea.document.open("text/html");
-document.clientArea.document.write("<body bgcolor='#003332' text='#999999'><center><h1>Work Shed Setup</h1></center><p><form><table><tr><td>Automatic Token on access: </td><td><input type='checkbox' onClick='top.Setup(1,1)' "+TokenString+"></td></tr><tr><td>Source using embed tag: </td><td><input type='checkbox' onClick='top.Setup(2,1)' "+SouceString+"></td><tr><td>Token URL: </td><td><input type='text' value='"+TokenURL+"' onChange='top.Setup(3,this.value)' bgcolor='#003332' text='#999999' border=0 nohighlight></td></tr></html>")
+document.clientArea.document.write("<body bgcolor='#000033' text='#999999'><center><h1>Work Shed Setup</h1></center><p><form><table><tr><td>Automatic Token on access: </td><td><input type='checkbox' onClick='top.Setup(1,1)' "+TokenString+"></td></tr><tr><td>Source using embed tag: </td><td><input type='checkbox' onClick='top.Setup(2,1)' "+SouceString+"></td><tr><td>Token URL: </td><td><input type='text' value='"+TokenURL+"' onChange='top.Setup(3,this.value)' bgcolor='#000033' text='#999999' border=0 nohighlight></td></tr></html>")
 document.clientArea.document.close();
 }
 
@@ -225,7 +225,7 @@ GoingToWrite="What you have entered is not a propper URL.  Please not that tv: o
 }
 
 document.clientArea.document.open("text/html");
-document.clientArea.document.write("<body bgcolor='#003332' text='#999999'><p>"+GoingToWrite+"");
+document.clientArea.document.write("<body bgcolor='#000033' text='#999999'><p>"+GoingToWrite+"");
 document.clientArea.document.close();
 
 }
@@ -233,7 +233,7 @@ document.clientArea.document.close();
 
 </script>
 </head>
-<body bgcolor="#003332" text="#99999" link="#AAAAAA" vlink="#AAAAAA" fontsize="small" onLoad="ATar=document.A.A">
+<body bgcolor="#000033" text="#99999" link="#AAAAAA" vlink="#AAAAAA" fontsize="small" onLoad="ATar=document.A.A">
 <center>
 <h1>WebTV Work shed</h1>
 </center>
@@ -242,7 +242,7 @@ This is used to manipulate and test a URL that pertains to WebTV Networks.  Unfo
 <p> 
 <form name="A">
 <table>
-<tr><th>URL: </th><td><table bgcolor="#000022"><tr><td><input bgcolor="#003332" text="#999999" border=0 nohighlight name="A" value="$URLX"></td></tr></table></td><td>
+<tr><th>URL: </th><td><table bgcolor="#000022"><tr><td><input bgcolor="#000033" text="#999999" border=0 nohighlight name="A" value="$URLX"></td></tr></table></td><td>
 <table>
 <tr><th href="javascript:sourceConfirm(ATar.value)">Source</th><th href="javascript:accessDirect(ATar.value)">Access</th><th href="javascript:uselessInfo(ATar.value)">Information</th><th href="javascript:ShowSetup()">Setup</th></tr>
 
