@@ -28,7 +28,7 @@ $tosendout=<<"ERIC"
 			<tr><td width=150>
 			<center>OpenTV - https://github.com/samdisk11/OpenTV</center>
 			<tr><td>
-			<center>TestDrive Service, (rev 72,xPerlUniversal)</center>
+			<center>TestDrive Service, (rev 76,xPerlUniversal)</center>
         	<tr><td>
 			<center>Newer WebTV (WebTV 3.0) Client Detected</center>
 		</table>
