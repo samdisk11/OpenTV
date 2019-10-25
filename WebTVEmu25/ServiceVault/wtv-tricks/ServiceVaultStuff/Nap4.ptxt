@@ -1,0 +1,47 @@
+300 OK
+wtv-ticket: 8Pdi8nQb2A8/6r7y9zsiOfdEG1143aE0pXceZG01nEoOzJy4Tos/OeBX75u6mlaPJpDWSiLNH7pu/MimnYjJ9h9buT34QtrZqM7MQvKf7uLjLOY23BEeiE5ft6Uh10yXw5r6AF/34k3dv37U9RyfvNU+RdbpEDGZz0hXtxunAeZmA+FDXeEDMwPSzRpWvCsC+g/mJ5iy9d/oRla+8953mtesMJkimRcrBMxmgVI+3vnM3VXIEzDlq7IUvqPnZhk4vscpRc7HjdAkMKb7A61PZwXEh8mEVhfItU7u0RTvq6gcFhOjdp/6roWRsUwML8A7zxqn9cp3NR9cl50td/2nK2ilCEFEjtSz/0Pl01NN+XpelagCWhnXfAg//Rspg6jA/vkHtXr5yF+5mMldDh7uMHnFjT8CuKvFhdGB0h/8QzBxrcxUQrUJAZAeLcbv9rZaL32Hg7TlfS8513KDxL9D8YRWF2AFdDENv8Etz3ffcbthGXSdKNAbcePJat++zk0lB3wiMnFaEuNTcUlTVBVQKPNrG0jssxc66aLcfyQfvlANPitm2MEbuPkYdPF6Ld2CA4WD7BSLnPQQPa9iWE13vSGbYH1Gnb6/Jjq4PwOEzh5XIxdj3+U+04PWidEwcqoXzpTbVY4vi13GmNx12S9SxQndCLLtljM6SwCmHywPM5jnqtdyqmfXZROrcCwQSLaPAi81bMBR7rEbVPHIEot+sbLgNPTU+sznCOsD7gk+Um+Bf6TrPp33g+qwuSQ/fnMDuXdZFiMxtjO4sK9AjeBvB9r0ApJu4Ren47zHH3rb/wj1YKn5KKvUgGz4YNeVOMs37SeXAPzILfoxGI2cbw1MFHDI0iFVF0nR2qnseH7nhTGV1ugGRvZaKHVcPLcGRgH9xS2BgKRGe26Qe5BvdhMYYNFSbEwT3EaLCDhPT2xR6ZfhQv0QoS7PQznp2Nu+OGcPtMD48H79OCsvnlv5fVRYrSBcJMflcrtsQaeqjEFw2u+stNFR5qxHX/R3yiLxjKTOyERulkM67GexaozL2EbG6vRctz8Cc5Q2vw1qgRX+rUb+36phIIT1jkTrMo6FCBiPilsxDTWpqqQ4+8tZ36/1fQKFpcgo7g2AkQ0NtkhTFRB7qD18iorVdyCncEneDQNzUA3IKbuuQATCsU6ONDT/aLSfUZZKw4SkpT5TU+TRZ/DOoDzawWzqzfgiebATwRm5zA7yi/sKhyZNAL6hwGfY9fzkcyzH2kSX3tSG3omqGm7WT70gMaz73niWKkQT/39DqpG99trrVil+WUfFa2yhjS5SHL/I7pXBxmOtYooB4Shk+u3OapQ07G6jvXB0Eble9lpP3CMl9h8kk4BY97qzZGNaKZlaO3cI9o5AbiD3tVImMh3O7ZmSJfENknMmll9qDFVUQUTjeEWigkxgYzmGKEIf1x9zvffbS2XMZ76PFQCwlt9xeH0OwfU8+mHYbT8Cy12H2e6LFwFBpL0w6cjj3lIC5STtIbaW2lqfXQx0oJvVQvOInNXS0lOdiw9S64VXYNNVH36LVb+z1vpN2i/bIf2mwyVONxAMyBizhwZfGXarGYGuNMNW4MaxGz5PqduUDBZtyqUDvrT0J24Uh0L/zp45GGSWXKJxCFJ/Eg5Ybf3wGShvRDaryyaNwzRWMx78/aiGpfp8qf7H/xdQAfWGMaR2Exu3D3buv2SziW8fReFJO05kV0+LtTC8n+iliF1dfxkadDYxD7Kz0vQ47LvfzsQZiJnMb1MkqL1p3eZBxZm/UfHampF6LvXpoUh6P/HtVR/sbJ80jX+HVpRdANfChA==
+wtv-expire-all: wtv-home:/home
+wtv-expire-all: wtv-home:/community
+wtv-expire-all: wtv-mail:/listmail
+wtv-expire-all: wtv-news:/lobby
+wtv-country: US
+wtv-language-header: US-en,US
+wtv-service: reset
+wtv-service: name=wtv-1800 host=%lip port=%lport
+wtv-service: name=wtv-head-waiter host=209.240.198.116 port=1601
+wtv-service: name=news host=209.240.198.116 port=1605
+wtv-service: name=wtv-news host=209.240.198.116 port=1605
+wtv-service: name=wtv-forum host=209.240.198.116 port=1605
+wtv-service: name=wtv-register host=209.240.198.116 port=1607
+wtv-service: name=wtv-mail host=209.240.198.116 port=1608
+wtv-service: name=mailto host=209.240.198.116 port=1608
+wtv-service: name=wtv-favorite host=209.240.198.116 port=1611
+wtv-service: name=wtv-setup host=209.240.198.116 port=1613
+wtv-service: name=wtv-flashrom host=209.240.198.116 port=1618
+wtv-service: name=wtv-explore host=209.240.198.116 port=1625
+wtv-service: name=wtv-explore2 host=209.240.198.116 port=1625
+wtv-service: name=wtv-chat host=209.240.198.116 port=1630
+wtv-service: name=wtvchat host=209.240.198.116 port=1630
+wtv-service: name=wtv-disk host=209.240.198.116 port=1635
+wtv-service: name=wtv-tutorial host=209.240.198.116 port=1636
+wtv-service: name=wtv-music host=209.240.198.116 port=1656
+wtv-service: name=wtv-tricks host=209.240.199.78 port=1602
+wtv-service: name=wtv-log host=%lip port=%lport flags=0x04
+wtv-service: name=wtv-guide host=209.240.199.78 port=1621
+wtv-service: name=wtv-intro host=209.240.199.78 port=1621
+wtv-service: name=wtv-content host=209.240.199.78 port=1629
+wtv-service: name=wtv-smartcard host=209.240.199.78port=1632
+wtv-service: name=wtv-center host=209.240.199.78 port=1639
+wtv-service: name=wtv-home host=209.240.199.78 port=1612
+wtv-service: name=wtv-spot host=209.240.199.78 port=1642
+wtv-service: name=wtv-passport host=209.240.199.78 port=1654
+wtv-service: name=wtv-notices host=209.240.199.163 port=1621
+wtv-service: name=wtv-notify host=209.240.199.163 port=1621
+wtv-service: name=wtv-star host=209.182.196.179 port=1603
+wtv-service: name=wtv-* host=209.182.196.179 port=1603
+wtv-service: name=wtv-author host=209.240.199.154 port=1643
+wtv-home-url: wtv-home:/home
+Content-length: 0
+Content-type: text/html
+Location: wtv-home:/home
+

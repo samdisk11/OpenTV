@@ -100,9 +100,8 @@ $clientdb{$clients}[15]	= $prm
 $clientdb{$clients}[16]	= $prm
 }elsif( $cmd eq "wtv-system-cpuprid:"           ){	#18
 $clientdb{$clients}[17]	= $prm
-}elsif($cmd eq "Referer:" || $cmd eq "referer:"){
+}elsif($cmd eq "referer"){
 $ENV{HTTP_REFERER}=$prm;
-$referer = $prm;
 }
 
 

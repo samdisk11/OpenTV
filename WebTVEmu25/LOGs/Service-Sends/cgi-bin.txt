@@ -1,0 +1,20 @@
+LOG FOR (25.7.197.106:46917) ON THU OCT 24 15:39:13 2019:
+GET cgi-bin:/
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 73
+
+
+LOG FOR (25.7.197.106:46917) ON THU OCT 24 15:39:16 2019:
+GET cgi-bin:/phpbb2
+pragma: no-cache
+wtv-request-type: primary
+wtv-system-cpuspeed: 166164662
+wtv-system-sysconfig: 3116068
+wtv-disk-size: 8006
+wtv-incarnation: 73
+
+

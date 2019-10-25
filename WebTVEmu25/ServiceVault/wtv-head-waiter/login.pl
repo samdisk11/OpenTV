@@ -13,6 +13,13 @@ $tosendout=<<"ERIC"
 		<spacer type=block height=98 width=21>
 		<br>
 		<img src="file://ROM/Images/SplashLogo1.gif" width=250 height=175>
+				
+		<p><br>
+		<table border>
+			<tr><td width=150>
+			<center>OpenTV - https://github.com/samdisk11/OpenTV</center>
+			<tr><td>
+			<center>TestDrive Service, (rev 76,xPerlUniversal)</center>
 		</table>
 		</center>
 	</body>
@@ -31,7 +38,6 @@ Connection: Keep-Alive
 wtv-default-client-useragent: Mozilla/4.0 WebTV/2.6 (compatible; MSIE 4.0)
 wtv-default-client-scriptprops: appVersion=4.0+(WebTV%3B2.8)&AliasAppName=Microsoft+Internet+Explorer
 wtv-service: reset
-wtv-service: name=http host=74.76.120.18 port=1650 flags=0x04
 wtv-service: name=wtv-1800 host=$sockhost port=$sockport flags=0x00000004
 wtv-service: name=wtv-head-waiter host=$sockhost port=1615 flags=0x00000001 connections=1
 wtv-service: name=wtv-customscript host=$sockhost port=1615
