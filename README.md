@@ -11,6 +11,6 @@ webTV boxes past version 5.0: ✔️
 
 webTV boxes before version 5.0: ✔️
 
-MSNTV 1 boxes: ❓ (untested, needs tester.)
+MSNTV 1 boxes: ✔️
 
-MSNTV 2 boxes: ❌
+MSNTV 2 boxes: ✔️
