@@ -1,0 +1,48 @@
+300 OK
+wtv-ticket: BorOUiL9xaxBaHb31GhO6jGguz/8CDjTuqAkCPYgZZ2Y0h/sQo0MBpNOng8dwiPiJ84s8B22GEW56uYOx44mO5Hdv4CpzjGAUSEO2YbXse63mQ/coInLQwt94Osq4QGBlPvoM35+1+XrySR5ax18WTK1xS9Qrsu7wDAy+JUaHwlwyoh5+8mYr1tdI+SLPmoV+hQKzcfnOS/Iii9c2TQ7VTN6G8Csb1lwFcKjuATd4ijZI/Fkp+3f8mbKaCXEaiGH10X7PW6srLDBwzxkd4CRspNWwAgmdsX+eATKAjNlKrx1P3lu34pxlwkMqwr5Nv1s+qWmgqD/NtixGUsjUOkxr3WeguRSd8H+IBwQyA8+ef9hWyNLgEwzNILy7eAZPxOMRO+OUlih3xc1SESTwMLtW6T6moBoAfn5vMe7CQ52URmvQdhGF7XDEYIukXppjjgg57suluQ28Gk6K7GApZC/3/P99HNlwxGwwlHKtqYQ8RwvN6VZskvb4sM5qcC7BBgW2t56meX3agkSp00+CxP7ghMs0N4hPvag4C3+JF/u9p6Spep2gi1W/SCp0ei5TaEulkzQ/RT3QOf/M+RzjDBETaBl4udpqGBqGInHjhoEvUXAlHRUK5/gl4SJDtgVvlX90f7AjtnNLj+SIlqijXK0a5zjXKF9DgtSUbPgOAr+pKeDXlmd5wSEOPVL6ECKzPLg3oYCnn7+Nw1e+7oJQbFstyXu2gz24bLV6WgI48Iu83Fnx1wXGXuKpoggRh+NMBeXipxZzsNwrcC069HB/t1flj2m+BDrijWikQ3Zz5B5Pj5aylYPVRgxueGirelvDjnTJsMeXbBeKkJTZ8PZA7R4Rf6mhyuV04AnmlO4h9C2PZ0cx7oRjjBbGlIq2oieSiEWoFZOhOznngJzd34VhOnsGuNb3fkRG9oiusNPTjN8GVVjWj7xZ/F6TXEkNEh4OauRlawmWRaHKLvMFke7ua8w1C6znDZ5rVPzgTmyk4X5WuSe3pZRwcFeuJDbXNKHaqvbMwcXYeaAKl7mpWyVazJDCY1E0NhbW9GJNFZQbsqzqteONHdwPgL0y3qhvYOa07krh6xDqbCx+qfU1/IJq1HTNS6vujCdYW/J9TPplFRZp5sDUzFHUDuhc3NBOYJgKz32Le5sQzweIwTqzEgtP1NmrzDc+IBb5YKT0fYQqx3JtejaKd0GYOT0CJsbw0nQBSvHakB8ASiNPdoKwr6dF10/FZC7yBryvcbNTCVucbvHZSyk7XBhAne2r++9v4gOc8TggerAv/antLJQiaPgMHtFwmk6SGLSWLh3ABG7helRDOJmfpU4bzoPlk4IFI8s8uQrtTtNW84hGvvw9JpYk6ef/HhNGUbjCvP7yMVlHcf5W3hqejn1GG/F1WL98j230qJrIxmt9umMqB6PTcpBjZ+kgVBaibW6+1wMFHlPYHgNuOXc6p4qo7ORHQk5eONWvlRZwT1x7Ttc481wWuP6PBrT0wGcfRwjYal+o0ClayW2WrVQJBEZvF24OW8JN4ellmUwyqIiLhs+bOIXMf85A8qTyQI537xCDwN/+wn7Jbe0ZzaxQ4dYamJG4MalCBm0v15Uf9ajTWxRlbjbat6ZgMWVYywbEOlE6BeBNnjSwirao3tuR6a9we0ig4pu5Usnm8WEhyTsBvC8dkt6Ryd7dFFJ6R1vIVXOjAOSF4p2fUB4UF18D0dwoL1w1ytJ5+cfDEYVg+DiG0mgmZmBz4b5vpeBOXvRSF5RZRIN4QVdfvLqHDsKqKefO8pFtgxHKw8cdAUUH9OzJW2swLD3VNkciwT6pPfQOo/aXbRB3fE9JKH9HdcjjFX6uzV8bGqGnx/u4kdiN/ydo1bPtSfj9Jj8JEuPmB6U3pdzhDRfyhYxQb6uiPd6JeGKDRRKjHbA+m6O39QF2zD9BEMOiMSqkQHKUZEK+Xv4kebBjwXF 
+wtv-expire-all: wtv-home:/home
+wtv-expire-all: wtv-home:/community
+wtv-expire-all: wtv-mail:/listmail
+wtv-expire-all: wtv-news:/lobby
+wtv-country: US
+wtv-language-header: US-en,US
+wtv-service: reset
+wtv-service: name=wtv-1800 host=%lip port=%lport
+wtv-service: name=wtv-head-waiter host=209.240.194.47 port=1601
+wtv-service: name=news host=209.240.194.47 port=1605
+wtv-service: name=wtv-news host=209.240.194.47 port=1605
+wtv-service: name=wtv-forum host=209.240.194.47 port=1605
+wtv-service: name=http host=%lip port=%lport
+wtv-service: name=wtv-register host=209.240.194.47 port=1607
+wtv-service: name=wtv-mail host=209.240.194.47 port=1608
+wtv-service: name=mailto host=209.240.194.47 port=1608
+wtv-service: name=wtv-favorite host=209.240.194.47 port=1611
+wtv-service: name=wtv-setup host=209.240.194.47 port=1613
+wtv-service: name=wtv-flashrom host=209.240.194.47 port=1618
+wtv-service: name=wtv-explore host=209.240.194.47 port=1625
+wtv-service: name=wtv-explore2 host=209.240.194.47 port=1625
+wtv-service: name=wtv-chat host=209.240.194.47 port=1630
+wtv-service: name=wtvchat host=209.240.194.47 port=1630
+wtv-service: name=wtv-disk host=209.240.194.47 port=1635
+wtv-service: name=wtv-tutorial host=209.240.194.47 port=1636
+wtv-service: name=wtv-music host=209.240.194.47 port=1656
+wtv-service: name=wtv-tricks host=209.240.194.47 port=1602
+wtv-service: name=wtv-log host=%lip port=%lport flags=0x04
+wtv-service: name=wtv-guide host=209.240.194.47 port=1621
+wtv-service: name=wtv-intro host=209.240.194.47 port=1621
+wtv-service: name=wtv-content host=209.240.194.47 port=1629
+wtv-service: name=wtv-smartcard host=209.240.194.47 port=1632
+wtv-service: name=wtv-center host=209.240.194.47 port=1639
+wtv-service: name=wtv-home host=209.240.194.47 port=1612
+wtv-service: name=wtv-spot host=209.240.194.47 port=1642
+wtv-service: name=wtv-passport host=209.240.194.47 port=1654
+wtv-service: name=wtv-notices host=209.240.194.47 port=1621
+wtv-service: name=wtv-notify host=209.240.194.47 port=1621
+wtv-service: name=wtv-star host=209.240.194.47 port=1603
+wtv-service: name=wtv-* host=209.240.194.47 port=1603
+wtv-service: name=wtv-author host=209.240.194.47 port=1643
+wtv-home-url: wtv-home:/home
+Content-length: 0
+Content-type: text/html
+Location: wtv-home:/home
+

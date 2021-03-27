@@ -1,0 +1,39 @@
+300 OK
+wtv-ticket: 1i2G9EYsDHjoGzsX17zztxScr4e9Z5WseZLwwgsU8io7ETT6gf9YTsXcUA1x+m7qzviXhGEUUZ/sWZOzF4F9npnDR3AuWgOcWxXDMbhQe8iMhzUln/q9O+38jvxBrZiUDr1248BiIxd1nJlEuduSYNTLMyYJ0lPsxHZekqGlHFL92JxKDk4eusPKON5gjCStc/K+e0afz/wtuS4e3lZnOyJmx5SaLXpCXm5wuvwvBdJAfflexhYDmehYhwq5oze8CV5cONEhV5RRtDDT7ucFI/86UJ3PBF40zTCR2yN+d/hk7fDOXxV0jm+UYlN/0vuc+dVBMgVgwL1YZ3eXlIM+gYKTwWgR6enngfP/uIW91721QlgmVo52WdbIaHViFYfIMIoQ0JtvyMS9f9S7kUMuCSoWsNg+HxScrbGLDTewXLi9Kt4QxXsC7IGpmuZRtR4nV4GRGzfaft2vuw/ql92iB0sae7VRVwqSRODPoVjcKFxxb8R0331YDfnNPnhqs0Zn0iptxCxDrfuS76jg8XYAD4pz0uQG6hGCcG2I8+ECwoqjR4IHBfmNaUyrXOw6p0Ekr9jqUHT5YHneYDI0eIhlRpZicQ1LJTXbc6kXRWAz55OnXfEjPs7bfI+hN1ARW6dHDzPrfC7HpCx+KfxSsjNRdxG6DAHVDiuh6LrzgzrnQwR18II4/XvoZwdmnOrHUxo4HOxAZLSO68irWJsmVSD1avhSl9bf3cDPZHHtD8NOEXnnx0YTnis24ZCOJjcHpWPbpsNItuSGE52xgJuuyyllmL1WJcmj6EosOObVZCzfw986H8N29wwapjHIdAmVx7X87Kxzt33DzDtXSBIwShdfZQ10zkZNN9G7pKUTHhzJQz3JCIAtCgua6IUa9JtUvnYzu6D7LFl0qOHITz6yjLy3vV8dv0xQ7qphOwEKSATqZXbx/1eVLX1ylgLq4ZAb0Hkte58xSz3jhStHOhRwd3is0o7JadTIyJuc5H1OsDQNuRVBr6Cikf8RvIzkcQzhUyD2N3CPUkeeQwDZOiXr8k01GMDLYV56UEg0cbzCkTMrwpb90cc9OglyCEdjaVXVebwS/Qmwq+m42QWtnHGQUHn2z9LAMDl/cQQ8MWwet4xXRn1hPssYUU+FdV6zv5/ejtfPrhV4463GKJpIUo5L+L81jRqISEIcf8fXPn13xBkueQTLhZblYy7ucl2hJ4O7mB+lH+AaiJzkZYBEBGALljAoUSdF1sB+TdMtwVLjp23XFpoQmVOZz0AgZ4dxHTlvy81ZOkb122MgTHFGMterKBqbI+jhpby0zQb77UUs/hxLCvXmDgBaa6uVmNNL0VcjveGLKyxRlYAnOVYZ2/7WloMLaMHQbA+zD4qeuEK0Up3G+B9KMK8SghIEyeB66yAsXL36zQAaYuXFedwH04fIS5QoluBTdaNDyNmaLcNJjcLebV6gU2aZ7+oSNFGfHisv1s3jDyrEnr1oLxadhhE/qf84lWKDXg790qMkHcbfGIbkS5BbB1WxsNkEW/LaHwyqMsGniEmD+si8Bi9kEnGLd/wnGgqKkymf6COtJ7EVzlSCfRleaA7IJ3ffYfuCk37n2TNZtNzLVWR13thE94hKrMBLKO+9lMcYgNevNI9TF89yZIqL6sZEZi+KEmA2/+UBX60GOd8UOg4+OoooNmmb+8uPY59NaN9+P/qyf9KFWRmI7XVNu+5NWuyNujW1ENDjhVhf9/nM++LBF5nXXW1NuG3+NR8tz73TP6ieY7NhyvMLHK9NF/HcpMqf6OikcO9hoP75
+wtv-language-header: US-en,US
+wtv-service: name=wtv-head-waiter host=209.240.194.47 port=1601
+wtv-service: name=news host=209.240.194.47 port=1605
+wtv-service: name=wtv-news host=209.240.194.47 port=1605
+wtv-service: name=wtv-forum host=209.240.194.47 port=1605
+wtv-service: name=wtv-register host=209.240.194.47 port=1607
+wtv-service: name=wtv-mail host=209.240.194.47 port=1608
+wtv-service: name=mailto host=209.240.194.47 port=1608
+wtv-service: name=wtv-favorite host=209.240.194.47 port=1611
+wtv-service: name=wtv-setup host=209.240.194.47 port=1613
+wtv-service: name=wtv-flashrom host=209.240.194.47 port=1618
+wtv-service: name=wtv-explore host=209.240.194.47 port=1625
+wtv-service: name=wtv-explore2 host=209.240.194.47 port=1625
+wtv-service: name=wtv-chat host=209.240.194.47 port=1630
+wtv-service: name=wtvchat host=209.240.194.47 port=1630
+wtv-service: name=wtv-disk host=209.240.194.47 port=1635
+wtv-service: name=wtv-tutorial host=209.240.194.47 port=1636
+wtv-service: name=wtv-music host=209.240.194.47 port=1656
+wtv-service: name=wtv-tricks host=209.240.194.47 port=1602
+wtv-service: name=wtv-log host=209.240.194.47 port=1609
+wtv-service: name=wtv-guide host=209.240.194.47 port=1621
+wtv-service: name=wtv-intro host=209.240.194.47 port=1621
+wtv-service: name=wtv-content host=209.240.194.47 port=1629
+wtv-service: name=wtv-smartcard host=209.240.194.47port=1632
+wtv-service: name=wtv-center host=209.240.194.47 port=1639
+wtv-service: name=wtv-home host=209.240.194.47 port=1612
+wtv-service: name=wtv-spot host=209.240.194.47 port=1642
+wtv-service: name=wtv-passport host=209.240.194.47 port=1654
+wtv-service: name=wtv-notices host=209.240.194.47 port=1621
+wtv-service: name=wtv-notify host=209.240.194.47 port=1621
+wtv-service: name=wtv-star host=209.240.194.47 port=1603
+wtv-service: name=wtv-* host=209.240.194.47 port=1603
+wtv-service: name=wtv-author host=209.240.194.47 port=1643
+wtv-home-url: wtv-home:/home
+Content-length: 0
+Content-type: text/html
+Location: wtv-home:/home

@@ -1,14 +1,13 @@
 $localtime = localtime();
 
 $lenc=length($tosendout);
-
+#wtv-service: name=http host=74.76.120.18 port=1650 flags=0x04
 print <<ERIC;
 200 OK
 Connection: Keep-Alive
 wtv-default-client-useragent: Mozilla/4.0 WebTV/2.6 (compatible; MSIE 4.0)
 wtv-default-client-scriptprops: appVersion=4.0+(WebTV%3B2.8)&AliasAppName=Microsoft+Internet+Explorer
 wtv-service: reset
-wtv-service: name=http host=74.76.120.18 port=1650 flags=0x04
 wtv-service: name=wtv-1800 host=$sockhost port=$sockport flags=0x00000004
 wtv-service: name=wtv-head-waiter host=$sockhost port=1615 flags=0x00000001 connections=1
 wtv-service: name=wtv-customscript host=$sockhost port=1615

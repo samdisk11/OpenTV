@@ -1,55 +1,69 @@
-<html><head>
-      <script>
+<html>
+<head> 
+<display nosave nosend skipback>
+<title>WebTV Tricks</title>
+<sidebar width=20%>
+<img src="wtv-tricks:/images/About_bg.jpg">
+</sidebar>
+<body bgcolor="#191919" text="#44cc55" link="36d5ff" vlink="36d5ff" vspace=0>
+<br>
+<br>
+<br>
+<h1>WebTV Tricks</h1>
+<br>
+<br>
+Hello, citizen! You have reached the "tricks" page. This is meant
+for use by the 2 people who can even access this server, and any hired
+contractors that do not exist in our world, because we're more broke
+than 50 Cent, after bankruptcy. Please enter the access password now.
+Hit the "back" button on your remote if you're not supposed to be here.
+Fuck, the fact that you're here is really concerning since we've put
+like 12 security barriers in the client to prevent you from coming here
+without some debug flash ROM (available over at Big Willie's, right past
+the password prompt that you will try to break through now!).
+<p>
+All access to this page is monitored. Unauthorized access may result
+in all sorts of things, like immediate termination, public humiliation,
+harassment, torment, swattings, sex tape leaks, 5 week timeouts, death
+of nearby household plants, this WebTV box detonating an internal bomb,
+prank 911 calls, bans from every Walmart in the world for sexual
+harassment of female employees, a sex offender registry record, sudden
+thoughts of needing a new WebTV box, and having your house
+used as a nuclear test site.
+<p>
+Remember, the computer is your friend.
+<p>
+<script type="text/javascript">
             function WorkAround(a){
             document.open("text/url");
             document.write(a);
             document.close();
             }
-        </script>
-</head>
-<display nosave nosend>
-<title>WebTV Tricks</title>
-<sidebar width=20%>
-<img 
-src="wtv-tricks:/images/Favorites_bg.jpg">
-</sidebar>
-<body bgcolor="#191919" text="#44cc55" 
-link="36d5ff" vlink="36d5ff" vspace=0>
-
-
-<br>
-<br>
-<h1>WebTV Tricks</h1>
-<br>
+			
+    function checkPswd() {
+	    var confirmUser = "sami";
+        var confirmPassword = "seqret1";
+        var password = document.getElementById("password").value;
+        if (password == confirmPassword) {
+             window.location="welcome.html";
+        }
+        else{
+            alert("Incorrect Login.");
+			WorkAround("traps")
+			window.location="traps.html";
+        }
+    }
+</script>
+<form
+enctype="x-www-form-encoded" method="POST">
+<input type=hidden >
 <table>
-<tr>
-<td colspan=3 height=6>
-<tr>
-<td><a href="wtv-tricks:/info">Info</a>
-<td width = 25>
-<td><a href="wtv-harvestmoon:/main">Visit Harvest Moon</a>
-<tr>
-<td colspan=3 height=6>
-<tr>
-<td><a href="wtv-flashrom:/willie">Visit Big Willie's!</a>
-<td width = 25>
-<td><a href="sami-pyconfig:/main">Configure pyWebTV</a>
-<tr>
-<td colspan=3 height=6>
-<tr>
-<td><a href="client:ResetNVAndPowerOff">Blast NVRAM</a>
-<td width = 25>
-<td><a href="client:showalert?message=You%20are%20about%20to%20%3Cb%3Eunregister%20this%20box.%3C%2Fb%3E%3Cp%3E%0AThe%20next%20person%20to%20use%20this%20box%20will%20have%20to%20pay%20an%0Aincreasing%20fee%20per%20microsecond%20to%20even%20think%20about%0Agetting%20back%20on%20this%20service.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Unregister&buttonAction2=wtv-head-waiter:/unregister">Unregister this Box</a>
-<tr>
-<td colspan=3 height=6>
-<tr>
-<td><a href="javascript:WorkAround('client:showservices')">Service List</a>
-<td width = 25>
-<td><a href="wtv-disk:/content/Downloads.tmpl">Download-o-Rama</a>
-<tr>
+    <tr><td>User:
+    <td><input name="username" id="username" selected bgcolor=#444444 text=#ffdd33 cursor=#cc9933 value="" type="text" size="16" maxlength="128">
+    <td>
+    <tr><td>Password:
+    <td><input name="password" id="password" bgcolor=#444444 text=#ffdd33 cursor=#cc9933 value="" type="password" size="16" maxlength="16" >
+    <td><input onclick="checkPswd();" type=submit value=" Enter ">
 </table>
-<p>Can't get at what you want? Well, who cares.</p>
-<br>
-<br>
-      </body>
-</html>
+</form>
+</body>
