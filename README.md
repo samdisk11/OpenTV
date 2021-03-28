@@ -3,7 +3,7 @@ OpenTV is a MSNTV/WebTV/MSNTV-2 Private Server Revival.
 It is Based off eMac&amp;MattMan's WebTV emulator.
 We strive to be the BEST MSNTV/WebTV/MSNTV-2 Private server.
 
-We will be rewriting on eMac's 1.5 code instead of 2.0 
+We will be rewriting the code with eMac's code to read/copy from for stuff idk
 
 # Compatible clients
 Dreamcast: ❓ (stuck on "waiting", JP client non-SSL, emulator, Matt's English Mod ISO )
